@@ -1,30 +1,43 @@
 # Имена переменных
-## scur  - currentString 
- текущая строка
+## scur  - currentOperateString 
+ текущая строка для обработки
 
 ## len  - arrayLenght 
  длина массива
 
-## curmenos  - currentSubtract 
+## curmenos  - currentSubtractResult 
  текущее значение вычитания двух элементов из массива 
  
 ## vmax  - maxAmountVoites 
- максивмальное число голосов на выборах
+ максимальное число голосов на выборах
 
  ## dist  - passedWay 
 пройденное расстояние 
 
 ## dt  - addedWay 
-добавленное расстояние
+расстояние. которое нужно добавить
 
 ## oldcmd - oldReciveCommand
-не обновленная (последняя полученная) команда
+последняя полученная команда
 
 ## rem - isRemoveSimbol
 надо ли удалять символ из строки
 
-## ppos  - new SymbolPosition
+## ppos  - newSymbolPosition
 результат вычисления новой позиции символа в строке
 
-## ppos  - new SymbolPosition
-результат вычисления новой позиции символа в строке
+## tabwords  - newTabWords
+новая создаваймая таблица
+
+## FRList - listFRDiscretRead
+список FR-модулей дискретного ввода
+
+## slots - slotsCount
+число слотов 
+
+
+
+
+
+
+
