@@ -35,8 +35,11 @@
 ## slots - slotsCount
 число слотов 
 
+## CelToplivo_OTS - kranFuelСutControlChainState
+состояние цепи управления отсечного топличного крана
 
-
+## CelToplivo_OTS - kranFuelCandyControlChainState
+состояние цепи управления отсечного топличного крана
 
 
 
