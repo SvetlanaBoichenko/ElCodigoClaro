@@ -1,8 +1,7 @@
 # Имена переменных
 
- scur  - currentOperateString
- 
-// текущая строка для обработки
+## scur  - currentOperateString
+ // текущая строка для обработки
 
 ## len  - arrayLenght 
 // длина массива
