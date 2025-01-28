@@ -61,10 +61,11 @@ KlapanSlave1  - slaveKlapan
 // указатель на объект класса Klapan 
 
 
-6.4. Найдите пять имён переменных в своём коде, длины которых не укладываются в 8-20 символов, и исправьте, чтобы они укладывались в данный диапазон.
+# 6.4. Найдите пять имён переменных в своём коде, длины которых не укладываются в 8-20 символов, и исправьте, чтобы они укладывались в данный диапазон.
 
 FPtr - prtFunction
-ret -  returnValue
+ret  -  returnValue
 Device_ESZ_Zapazdivanie - devEszZapazdivanie
-
+inp  - inputValue  
+pos  - curLenPos
 
