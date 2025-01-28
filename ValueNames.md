@@ -1,5 +1,7 @@
 # Имена переменных
- scur  - currentOperateString 
+
+ scur  - currentOperateString
+ 
 // текущая строка для обработки
 
 ## len  - arrayLenght 
