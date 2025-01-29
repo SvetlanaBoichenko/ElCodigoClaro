@@ -3,68 +3,53 @@
  RegList - internListRegistrator  
  // список внутренних списков объектов
 
- Name - portName
-
+ Name - portName  
  // имя порта 
  
- Mode - portWorkMode
- 
+ Mode - portWorkMode   
 // режим работы порта чтение или запись
 
-MsCounter - msAnswerCount
-
+MsCounter - msAnswerCount  
 // счетчик времени ожидания ответа 
 
- AddressIndex - fullDeviceAddress
- 
-// переменная получаемая после добавления дополнительной подстроки к основному адресу устройства
+ AddressIndex - fullDeviceAddress     
+// переменная получаемая после добавления доп. подстроки к основному адресу устройства
 
-WErr - writeErrorCode
-RErr - readErrorCode
-
+WErr - writeErrorCode  
+RErr - readErrorCode  
 //Коды ошибок записи и чтения получаемые при обмене данными
 
 # 6.2. 
 
-Type - eventType 
-
+Type - eventType   
 // Тип события
  
- IsForMe - isMyEvent
- 
+ IsForMe - isMyEvent  
  // Адресовано ли событие этому объекту
 
-queueRecord 
-
+queueRecord  
 // получаемая запись из очереди
 
-threadParam 
-
+threadParam   
 // указатель на переменную передаваемую в функции потока
 
 # 6.3. 
 
-devid - deviceID
-
+devid - deviceID  
 // идентификатор устройства в функции создания обьекта класса Device
 
-sid  - signalID 
-
+sid  - signalID   
 // идентификатор сигнала в функции его обработки
 
-KlapanSlave1  - slaveKlapan
-
+KlapanSlave1  - slaveKlapan  
 // указатель на объект класса Klapan 
 
 
 # 6.4. 
-FPtr - prtFunction
+FPtr - prtFunction  
+ret  -  returnValue  
+Device_ESZ_Zapazdivanie - devEszZapazdivanie  
+inp  - inputValue    
+pos  - curLenPos  
 
-ret  -  returnValue
-
-Device_ESZ_Zapazdivanie - devEszZapazdivanie
-
-inp  - inputValue  
-
-pos  - curLenPos
 
