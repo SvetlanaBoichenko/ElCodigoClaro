@@ -1,7 +1,7 @@
 # 6.1
 
  RegList - internListRegistrator
- // список внутренних списков объектов
+$ // список внутренних списков объектов
 
  Name - portName
 
