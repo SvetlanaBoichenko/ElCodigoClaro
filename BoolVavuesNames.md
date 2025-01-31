@@ -1,4 +1,5 @@
-# 7.1 Улучшить имена
+# 7.1     
+//Улучшить имена  
 
 BusSignal - signalBus  
 
@@ -13,30 +14,30 @@ TestMode - isTestMode
 
 CRCFlag - crcMode
 
-# 7.2  использовать типичные имена
-Найдите несколько подходящих случаев, когда в вашем коде можно использовать типичные имена булевых переменных  
+# 7.2  
+//использовать типичные имена  
 
-NetErrorFlag - netError  
-// ошибка связи
+NetErrorFlag - netError      
 
-CRCFlag - crc
-// надо ли учитывать контрольную сумму
+CRCFlag - crc  
 
- in_counter - successRead  
- // получили ли хоть какие то данные из порта
+in_counter - successRead  
  
-# 7.3 счетчики цикла
+# 7.3  
+//счетчики цикла  
 
-k - curPosition
-i - row
-j - collum
+k - curPosition  
+i - row  
+j - collum  
 
-# 7.4 имена - антонимы
- inputPortList - outputPortList  
+# 7.4  
+//имена - антонимы  
+ inputPortList - outputPortList    
  variable - invariable  
  stateStop - stateWork  
 
- # 7.5
+ # 7.5  
+ // временные переменные  
  cha -  primCharLine    
  a   - curChar  
  el  - сurNumber  
