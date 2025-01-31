@@ -9,7 +9,8 @@ FDirectButton - buttonDirect
 
 FBlinkFlag - lampBlinking  
 
-ManualMode - isManualMode  
+ManualMode - isManualMode
+
 TestMode - isTestMode
 
 CRCFlag - crcMode
