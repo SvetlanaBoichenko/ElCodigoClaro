@@ -21,7 +21,7 @@ Lmin - minLenTabTele
 ManKran - kranManager  
 // управляющая часть крана - кнопки, сетевые команды   
     
-SlaveKran2 - kranTwinSlavе, SlaveKran - kranOneSlavе        
+SlaveKran2 - kranTwinSlavе,   SlaveKran - kranOneSlavе        
 // Управляемая часть спаренного крана  
      
 Value - deviceState  
@@ -30,7 +30,7 @@ Value - deviceState
 Signals - signalsGroup  
 // перечень сигналов  
   
-SKran2Param - kranTwinParams, SKranParam - kranTOneParams    
+SKran2Param - kranTwinParams,   SKranParam - kranTOneParams    
 // Структуры параметров кранов  
   
 ZubCount - turbChaseCount   
