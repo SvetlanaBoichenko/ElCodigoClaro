@@ -1,21 +1,43 @@
-# Имена которых следует избегать  
+# Замена имен, которых следует избегать    
 
-x - coordX  
-
+x - coordX    
+// Засчет координаты  
+  
 String sub = firstPartName  
- 
-nums = numLettersName  
-// число символов в имени
-sitems2 = num
-// число  в корзинке
+// Первая часть составного имени  
+  
+nums = numLetters  
+// число букв в строке  
+    
+sitems2 = numItems  
+// число объектов  
+    
+newtele1 = finalTabTele  
+// сформированная таблица  
+  
+Lmin - minLenTabTele  
+// минимальная длина массива    
+    
+ManKran - kranManager  
+// управляющая часть крана - кнопки, сетевые команды   
+    
+SlaveKran2 - kranTwinSlavе, SlaveKran - kranOneSlavе        
+// Управляемая часть спаренного крана  
+     
+Value - deviceState  
+// значение, состояние устройства   
+   
+Signals - signalsGroup  
+// перечень сигналов  
+  
+SKran2Param - kranTwinParams, SKranParam - kranTOneParams    
+// Структуры параметров кранов  
+  
+ZubCount - turbChaseCount   
+// Число пазов(зубов) турбины    
+   
+wait_time - waitTime_ms  
+// время задержки ответа по сети  
+  
 
-newtele1 = finalTele
-Lmin - minTeleLenght
-
-
-
-
-String[] sitems2
-
- int curnum = Integer.valueOf(sub);
-int  max
+  
