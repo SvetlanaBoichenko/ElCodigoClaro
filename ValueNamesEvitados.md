@@ -1,9 +1,9 @@
 # Замена имен, которых следует избегать    
 
 x - coordX    
-// Засчет координаты  
-  
-String sub = firstPartName  
+// Засчет координаты    
+ 
+sub = firstPartName  
 // Первая часть составного имени  
   
 nums = numLetters  
