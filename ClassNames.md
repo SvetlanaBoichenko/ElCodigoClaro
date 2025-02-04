@@ -10,12 +10,12 @@ BeSyscontrol      - BeSysOperator
 BeDevice          - BeModule
  
 # имена методов и объектов 
-//Объекты
+//Объекты  
   VSAS -   masterVsas,    KLAPAN_TK - masterKlapanTk    
   VSAS1 -  slaveVsas1,    VSAS2 - slaveVsas2, KLAPAN_TK2 - slaveKlapanTK    
-  SYSCONTROl -  SysOperator  
-  
-  // Методы
+  SYSCONTROl -  SysOperator    
+    
+  // Методы  
   SYSCONTROL::SetLampaNZStop  - SysOperator::SetNZIndicator(..)  
   SYSCONTROL::StartAlarmFunction  -  SysOperator::SetSysAlarm(..),  SysOperator::SetExtraAlarm(..)  
   BeDevice:: UpdateData()  -  BeModule::UpdateSignals()
