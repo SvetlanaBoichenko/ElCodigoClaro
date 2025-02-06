@@ -33,7 +33,7 @@ changeroot(..) - ChangeNumberBase(..)
 Ramas1(..) - MakeBranches(..)  
 // ФОомирование "веток" дерева по правилу  
   
-Rem1() - DelToFirstRule(..), Rem2(..) - DelToSecondRule(), Rem3(..) - DelToThirdRule   
+Rem1() - DelToFirstRule(..),   Rem2(..) - DelToSecondRule(),   Rem3(..) - DelToThirdRule   
 // Удаление "веток" по первому, второму и третьему правилу   
    
 MatrixTurn1(..) - TurnMatrixOneStep(..)   
