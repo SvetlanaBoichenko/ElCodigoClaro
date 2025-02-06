@@ -12,7 +12,7 @@ OnChange(..) - OperateChange(..)
 Codirovka  - CodeToPort(..), DeCodirovka - CodeFromPort(..)  
 // Упоаковка и распаковка посылки для отправки/после получения по сети  
 
-OnKTCBlinkLampa() - KTCLampaBlink(), OfKTCBlinkLampa() - KTCLampaStop(), OnKTCLampa() - KTCLampaEnable()   
+OnKTCBlinkLampa() - KTCLampaBlink(),    OfKTCBlinkLampa() - KTCLampaStop(),     OnKTCLampa() - KTCLampaEnable()   
 // Команды для лампы КТС - мигать, выключить, гореть  
   
 EqLens(..) - CompareStringsOfNums(..)  
