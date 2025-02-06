@@ -1,4 +1,3 @@
-|
 # Названия методов    
   
 ClearExtra() - TerminateExtraStop()  
