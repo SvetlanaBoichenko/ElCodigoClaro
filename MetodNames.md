@@ -9,7 +9,7 @@ UserConfig() - LoadUserConfig()
 OnChange(..) - OperateChange(..)  
 // Обработка события по изменению сигнала  
   
-Codirovka  - CodeToPOrt(..), DeCodirovka - CodeFromPort(..)  
+Codirovka  - CodeToPort(..), DeCodirovka - CodeFromPort(..)  
 // Упоаковка и распаковка посылки для отправки/после получения по сети  
 
 OnKTCBlinkLampa() - KTCLampaBlink(), OfKTCBlinkLampa() - KTCLampaStop(), OnKTCLampa() - KTCLampaEnable()   
