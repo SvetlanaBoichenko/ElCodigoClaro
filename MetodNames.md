@@ -4,19 +4,19 @@
 ClearExtra() - TerminateExtraStop()  
 // окончание экстренного останова (смена флагов режима, смена состояния)  
 
-UserLoadConfig() - LoadUserConfig()  
+UserConfig() - LoadUserConfig()  
 // Загрузка перечня и свойств кранов и прочих механизмой из файла  
 
 OnChange(..) - OperateChange(..)  
 // Обработка события по изменению сигнала  
   
-Codirovka  - CodeTOPOrt(..), DeCodirovka - CodeFromPort(..)  
-// Пупоаковка и распаковка посылки для отправки по сети  
+Codirovka  - CodeToPOrt(..), DeCodirovka - CodeFromPort(..)  
+// Упоаковка и распаковка посылки для отправки/после получения по сети  
 
 OnKTCBlinkLampa() - KTCLampaBlink(), OfKTCBlinkLampa() - KTCLampaStop(), OnKTCLampa() - KTCLampaEnable()   
 // Команды для лампы КТС - мигать, выключить, гореть  
   
-EqLens(..) - CompareNumStrings(..)  
+EqLens(..) - CompareStringsOfNums(..)  
 // Сравнение чисел, представленных в формате строки  
   
 changeroot(..) - ChangeNumberBase(..)  
