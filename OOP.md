@@ -52,11 +52,11 @@
  class Klapan extends Devices {  
      public Klapan(int type, String name, int timeToMove) {  
          super(type, name,0);  
-     }  
- }  
+       }  
+  }  
 
 class Kran extends Devices {  
     public Kran(int type, String name, int timeToMove) {  
         super(type, name, timeToMove);  
-    }  
-}  
+      }  
+  }  
