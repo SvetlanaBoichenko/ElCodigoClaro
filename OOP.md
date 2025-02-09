@@ -21,7 +21,7 @@
         
     } 
 
-   ##  функция 1 
+   ##  метод 1 
     public static BitDevice  MakeBitDevice () {   
         BitDevice SignalNZ = new BitDevice();   
         SignalNZ.name ="Неоткл защита";   
@@ -29,12 +29,12 @@
         return SignalNZ;  
     }  
   
-  ##   функция 2
+  ##   метод 2
     public static Kran MakeNewKran (int type, String name, int timeToMove) {    
         return new Kran (1, "Vsas", 40);    
     }    
   
-   ##  функция 3  
+   ##  метод 3  
     public static Klapan MakeNewKlapan (int type, String name) {    
         return new Klapan(1, "TK", 0);    
     }    
