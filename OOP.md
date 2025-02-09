@@ -21,7 +21,7 @@
         
     } 
 
-   ## 1 
+   ##   1 
     public static BitDevice  MakeBitDevice () {   
         BitDevice SignalNZ = new BitDevice();   
         SignalNZ.name ="Неоткл защита";   
@@ -29,12 +29,12 @@
         return SignalNZ;  
     }  
   
-  ## 2
+  ##   2
     public static Kran MakeNewKran (int type, String name, int timeToMove) {    
         return new Kran (1, "Vsas", 40);    
     }    
   
-   ## 3  
+   ##  3  
     public static Klapan MakeNewKlapan (int type, String name) {    
         return new Klapan(1, "TK", 0);    
     }    
