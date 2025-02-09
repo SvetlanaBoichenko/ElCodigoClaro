@@ -1,4 +1,4 @@
-# три примера наглядных методов-фабрик  
+# Три примера нметодов-фабрик  
       
     public class Devices {  
     private int type;  
@@ -39,7 +39,7 @@
         return new Klapan(1, "TK", 0);    
     }    
   
-  ### Вызов функций
+  ### Вызов методов
     public static void main(String[] args)  
     {
         Kran kranVsas = Devices.MakeNewKran (2, "Vsas", 15);
@@ -60,3 +60,35 @@ class Kran extends Devices {
         super(type, name, timeToMove);  
       }  
   }  
+
+
+# Абстрактные классы
+// Класс для записи в файл  
+
+class   AWriter  : public  AFile    
+{   
+private:   
+protected:  
+    
+    virtual void    OnOpenTag (AString str) = 0;    
+    virtual void    OnCloseTag (AString str) = 0;       
+.  
+.  
+}  
+
+ // Базовый класс для создания интерфейсов обмена данными  
+ 
+class   AInterface  :   public  AObject  
+{  
+protected:  
+  
+    HANDLE	Handl;  
+    long    FTimeOut;  
+    AFlag   FPortOptions;  
+  
+public:  
+	virtual	int		WriteData (void *buf, unsigned int len) = 0;  
+	virtual	int		ReadData  (void *buf, unsigned int len) = 0;  
+.  
+.  
+}  
