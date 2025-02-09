@@ -1,5 +1,6 @@
 # три примера наглядных методов-фабрик  
-public class Devices {  
+      
+    public class Devices {  
     private int type;  
     private String name;  
     private int timeToMove;  
