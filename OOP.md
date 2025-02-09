@@ -1,4 +1,4 @@
-# Три примера нметодов-фабрик  
+# Три примера методов-фабрик  
       
     public class Devices {  
     private int type;  
