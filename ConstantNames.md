@@ -27,31 +27,31 @@
    const unsigned short PIN_16   = 0xA001;  
    // Изменила имя, добавила разделитель  
      
-6.static  const   TYPE_XML     =   0x0002;  
-  static  const   TYPE_CSV     =   0x0004;   
+6. static  const   TYPE_XML     =   0x0002;  
+   static  const   TYPE_CSV     =   0x0004;   
   
-  static  const   READER_TYPE_XML     =   0x0002;  
-  static  const   READER_TYPE_CSV     =   0x0004;  
-  // Добавила в имя тип объекта - Reader  
+   static  const   READER_TYPE_XML     =   0x0002;  
+   static  const   READER_TYPE_CSV     =   0x0004;  
+   // Добавила в имя тип объекта - Reader  
 
-7-  static  const QString logDir  = "/diagnostic/logs";  
+7.  static  const QString logDir  = "/diagnostic/logs";  
     static  const QString LOG_DIR = "/diagnostic/logs";  
     // Изменила имя , регистр, ввела разделитель  
 
-8. static  const QString logDir  = "/diagnostic/logs";  
-   static  const QString LOG_DIR = "/diagnostic/logs";  
+8.  static  const QString logDir  = "/diagnostic/logs";  
+    static  const QString LOG_DIR = "/diagnostic/logs";  
     // Изменила регистр и добавила разделитель  
 
-9. const QString muxDir = "/dev/input";  
-   const QString soundCardsPath = "/dev/snd";  
+9.  const QString muxDir = "/dev/input";  
+    const QString soundCardsPath = "/dev/snd";  
   
-   const QString MUX_DEVICE_DIR = "/dev/input";  
-   const QString SOUND_CARD_DIR = "/dev/snd";  
-// Изменила регистр и имя, внесла раделитель  
+    const QString MUX_DEVICE_DIR = "/dev/input";  
+    const QString SOUND_CARD_DIR = "/dev/snd";  
+  // Изменила регистр и имя, внесла раделитель  
 
 10. static  const   AString SLASH_STR        = ¨\¨;    
     static  const   AString SLASH_CHAR       = ¨\¨;  
-// Изменила имя  
+  // Изменила имя  
 
 11. static  const   short  GCQueuePrioritiesCount  = 3;  
     static  const   short  GC_QUEUE_PRIORITY_COUNT  = 3;  
