@@ -25,11 +25,13 @@ String strCommand = strCommand.replaceAll (STR_FOR_REPLACE, STR_TO_REPLACE);
 4.  
   double per =  (vmax / sum ) * 100.0;  
   
+  int voteSum....
   double votePercent;    
   if (voteSum != 0) {   
     votePercent =  (voteMax /(double) voteSum ) * 100.0;  
   }   
- // Ввела проверку деления на 0, изменила имена переменных, сделала приведение типа  
+ // Ввела проверку деления на 0, изменила имена переменных, изменила тип voteSum на целый
+ // сделала приведение типа  
 
 
 5.  tf = ((float)tob2) / ZUBCOUNT;  
@@ -78,18 +80,29 @@ for (int i = 0; i < N ; i++) {
   
   
 10. 
-  float tf = ((float)ZubCount) / ZUBCOUNT;  
+  float tf = ((float)ZubCount) / ZUB_COUNT;  
   
-double freqTurbo;  
+double freqTurbo = 0;  
 if (ZUBCOUNT != 0) {  
-  freqTurbo= ((double)ZubCount) / ZUBCOUNT;  
-}  
-// Изменила тип на тип с большей точностью  
+  freqTurbo= ((double)ZubCount) / ZUB_COUNT;  
+}    
+// Изменила тип на тип с большей точностью    
 
-11.
+11.  
+ if ( per >= 50.000)    
+   retstr = "majority winner " +  sindex;    
 
-
-
-
+  BigDecimal percentVote = new BigDecimal(per);  
+  BigDecimal valueZero = new BigDecimal(0.0);  
+        if (percentVote.compareTo(zero) >= 0) { retMessage = "majority winner " +  kandidatIndex;}  
+    }  
+// Для сравнения вещественных чисел ввела два объекта работающих с вещ числами  
+// изменила имена переменных  
+  
+12.  
+static final int ROUND_CEILING = 1;  
+static final int ROUND_FLOOR = 3;  
+percentVote.setScale(4,ROUND_CEILING);  
+// ОВвела точность и округлила резкльтат предыдущего сравнения
 
  
