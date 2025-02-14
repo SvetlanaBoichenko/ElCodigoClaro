@@ -59,14 +59,14 @@ boolean newNodeEQcurNode = (newnod.value.compareTo(curnod.value)== ascendval);
 if ( correctCurNode && newNodeEQcurNode)  {..};  
 // применила булевы переменные, изменила имена переменных
   
-8.  
+8. 
  if ( this.count - 1 < 0.5 * this.capacity) {..};  
    
  boolean countLTcapacity = (this.count - 1 < 0.5 * this.capacity);  
  if ( countLTcapacity) {..};  
  // применила булеву переменную  
   
- 9.  
+ 9. 
 for (int i = 0; i < N ; i++) {  
     sum = sum +Votes[i];  
 }  
@@ -77,12 +77,16 @@ for (int i = 0; i < N ; i++) {
  // Ввела проверку на переполнение   
   
   
-10.
+10. 
+  float tf = ((float)ZubCount) / ZUBCOUNT;  
+  
+double freqTurbo;  
+if (ZUBCOUNT != 0) {  
+  freqTurbo= ((double)ZubCount) / ZUBCOUNT;  
+}  
+// Изменила тип на тип с большей точностью  
 
-
-
-
-
+11.
 
 
 
