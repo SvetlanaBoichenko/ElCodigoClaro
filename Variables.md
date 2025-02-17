@@ -24,7 +24,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
     .  
     return ret;  
            
-//------------------------
+------------------------
     .    
     . много кода    
     .    
@@ -41,9 +41,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
      . 
     return ret;  
     // Перенесла переменную ближе к ее использованию  
-
     3.  
-
         int[] newArray;
         int k;
      
@@ -53,7 +51,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
         }
         newArray = new int[resarray.length-k];
     
-//----------------------
+----------------------
  
         int subLine = 0;
         for(int  k = 0;  k < resarray.length;  k++ ) {
@@ -81,7 +79,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
         .  
       }  
     
-//----------------------        
+----------------------        
       много кода  
       .
       .
@@ -110,7 +108,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
             }
         }
       return fret;
-//---------------------------------   
+---------------------------------   
          
       for (i = 0; i <= baseTabPosition.length-subTabPosition.length; i++ ) {
             for (j = 0; j <= baseTabPosition[0].length - subTabPosition[0].length; j++) {
@@ -148,9 +146,44 @@ AIOService::AIOService (AString namе , AString comment)
 // Добавила инициализацию указателей на объекты нулями
 
 7.
+ public static boolean LineAnalysis(String line)
+    {
+        String s1 = line;
+     .
+     .
+    }
+---------------------------
+   public static boolean LineAnalysis(String line)
+    {
+        String inputLine =new String(line);
+     .
+     .
+    }
+// Создала новый экземпляр типа String c теми же данными
+// переименовала новую строку
 
+8.  public static String BastShoe(String command) {
+        int cmd = 0;
+        String sc = command.substring(0, 1);
+    .
+    .
+    .
+}
+static ins=t firstCommandTypePos = 0;
+static ins=t lastCommandTypePos = 1;
 
+ public static String BastShoe(String command) {
+        int cmd = 0;
+        String inpCommand = new String(command);
+        String typeCommand = inpCommand.substring(firstCommandTypePos, lastCommandTypePos);
+    .
+    .
+    .
+}
+// Создала новый экземпляр типа String c теми же данными
+// переименовала новую строку
 
+9.
 
 
 
