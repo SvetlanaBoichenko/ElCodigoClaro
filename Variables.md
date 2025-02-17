@@ -111,8 +111,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
                     return fret;
             }
         }
-
-        return fret;
+      return fret;
 //---------------------------------   
          
       for (i = 0; i <= baseTabPosition.length-subTabPosition.length; i++ ) {
@@ -121,33 +120,36 @@ for ( int i = basebit;  i <= lastbit;  i++)
                     return true;
             }
         } 
-
   return false;
 
  // Внесла счетчики в заголовок цикла, избавилась от лишней переменной 
- // переимновала остальные переменные и функцию       
+ // переименовала остальные переменные и функцию       
         
         6.
-        int ii,jj, k=0, l= 0;
-        boolean res = false;
+    class   AIOService     
+    {
+        protected:
+        AInterface* FInterface;
+        AProtocol*  FProtocol;
+        ASreing name;
+        AString comment;
+        .
+        .
+   public:
+	AIOService (AString name, AString comment);
+	virtual	~AIOService();
+};
+    
+AIOService::AIOService (AString namе , AString comment)       
+{
+    FInterface  = 0;
+    FProtocol   = 0;
+    FName = name;
+    FComment = comment;
+}  
+// Добавила инициализацию указателей на объекты нулями
 
-        int x1 = tab1.length;
-        int x2 = tab2.length;
-        int y1 = tab1[0].length;
-        int y2 = tab2[0].length;
-        int[][] temp = new int[x2][y2];
-
-        for (ii = i; ii < x2+i; ii++) {
-            l = 0;
-            for (jj = j; jj < (y2+j); jj++) {
-                temp[k][l] = tab1[ii][jj];
-                l++; // не использкется , номер задачи 15
-            }
-            k++;
-        }
-
-
-
+7.
 
 
 
