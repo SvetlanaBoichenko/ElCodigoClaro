@@ -215,16 +215,59 @@ static ins=t lastCommandTypePos = 1;
 // Создала новый массив - копию входного
 // Переименовала переменные
 
-11. 
+10. 
+class   AInterface  :   public  AObject
+{
+protected:
+    HANDLE	Handl;
+    long    FTimeOut;
+    AFlag   FPortOptions;
 
+public:
+.
+.
+} 
 
+AInterface::AInterface(AString name, AString comment)
+          : AObject (name, comment)
+{
+    Handl = INVALID_HANDLE;
+    FTimeOut = DEFAULT_TIMEOUT;
+    FPortOptions = 0;
+}
 
+//добавила инициализацию FTimeOut и FPortOptions в конструкторе класса
 
+11.  
+ void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
+{
+    uint    cf;
+    switch (sid)
+    {
+    case CONFIRM_NET_SOUND_SIGNAL:
+    case CONFIRM_NET_LIGHT_SIGNAL:
+	.
+  	.
+   }
+}
+   --------------------
+   
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
+{
+    switch (sid)
+    {
+    case CONFIRM_NET_SOUND_SIGNAL:
+    case CONFIRM_NET_LIGHT_SIGNAL:
+	.
+  	.
+   }
+   uint    countConfirms = 0;
+   ..
 
+}
+// Переместила и проинициализировала функцию
 
-
-
-
+12.  
 
 
 
