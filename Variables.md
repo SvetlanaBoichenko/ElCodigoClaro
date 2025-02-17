@@ -238,23 +238,23 @@ AInterface::AInterface(AString name, AString comment)
 
 //добавила инициализацию FTimeOut и FPortOptions в конструкторе класса
 
-11.  
- void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
-{
-    uint    cf;
-    switch (sid)
+11.   
+   void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)  
+{  
+    uint    cf;  
+    switch (sid)  
     {
-    case CONFIRM_NET_SOUND_SIGNAL:
-    case CONFIRM_NET_LIGHT_SIGNAL:
-	.
-  	.
-   }
-}
+    case CONFIRM_NET_SOUND_SIGNAL:  
+    case CONFIRM_NET_LIGHT_SIGNAL:  
+	.  
+  	.  
+   }  
+}  
    --------------------
    
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
 {
-    switch (sid)
+    switch (sid) 
     {
     case CONFIRM_NET_SOUND_SIGNAL:
     case CONFIRM_NET_LIGHT_SIGNAL:
@@ -268,6 +268,102 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
 // Переместила и проинициализировала функцию
 
 12.  
+static int  const MOVE = 0x10 ;          
+static int const DAMAGED =  0x40 ;          
+static int const UNKNOWN = 0x0F ; 
+
+//Ввела статические переменные вместо обычных
+
+13.  
+BeSystem::BeSystem()
+{
+    REESTR->FSystem = this;
+
+    TimerValue = 0;
+    
+    firstKTCConfirm = false;
+    firstKTCErr = false;
+    lamp_blink_mgp = false;
+}
+------------------------
+BeSystem::BeSystem()
+{
+    REESTR->FSystem = this; 
+    
+    firstKTCConfirm = false;
+    firstKTCErr = false;
+    lampBlinkMgp = false;
+}
+
+// Убрала TimerValue - нигде не используется, изменила имя переменной
+
+14.
+
+сlass   BeSystem : public BeClass
+{
+ public:
+
+    BeAlarm *AlarmStepList;
+    BeAlarm *ExtraStepList;
+
+	pthread_t	FThreadId;
+
+	void    UserFixedConfig();
+	bool    UserLoadConfig();
+..
+} 
+-------------------
+BeSystem::BeSystem()
+{
+    REESTR->FSystem = this;
+    
+    firstKTCConfirm = false;
+    firstKTCErr = false;
+    lampBlinkMgp = false;
+
+    AlarmStepList = 0;
+    ExtraStepList = 0;    
+}
+// Проинициализировала AlarmStepList, ExtraStepList
+
+
+15.
+
+class   BeSyscontrol  : public BeDevice
+{
+protected:
+
+    _timevalue      FAlarmOilTimeMs;
+    _timevalue      FExtraSignalTimeMs;
+
+    BeReadSignal*   FIO_SYSCONTR_NZ_OBOROTY_MAX;
+ 
+    bool LampaBlink;
+    bool LampOn;
+ 
+    bool IskraOn;
+...
+} 
+
+BeSyscontrol::BeSyscontrol (int devid, char *strid)
+            : BeDevice (devid, strid, SYSCONTROL_SIGNAL_COUNT)
+{ 
+     if ((strid == 0) || (*strid == 0))
+        ErrorDetect();
+ 
+    FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");
+
+    BlinkTimer = 0;
+    FExtraSignalTimeMs = 1000;
+    FAlarmOilTimeMs    = 3000;
+     
+    IskraFlag = false;           
+    LampaBlink = false;
+    LampOn = true;
+ }
+// добавила инициализацию булевых переменных в конструкторе
+// изменила имена переменных
+
 
 
 
