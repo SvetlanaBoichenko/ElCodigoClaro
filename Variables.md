@@ -10,102 +10,100 @@ for ( int i = basebit;  i <= lastbit;  i++)
 // неинициализированной переменной     
 
 # 2  
-    uint ret = OFF;  
-    .. много кода  
-    if ((NetSetPorts[port_index] & bit_mask) != 0)
-    {  
-        ret = ON;  
-     ..  
-    }
-    ..    
-    return ret;             
+uint ret = OFF;  
+.. много кода  
+if ((NetSetPorts[port_index] & bit_mask) != 0)
+{  
+ret = ON;  
+..  
+}
+..    
+return ret;             
 //------------------------  
-    .. много кода  
-    ..        
-    uint ret = OFF;         
-    if ((NetSetPorts(port_index) & bit_mask) != 0)  {      
-      ret = ON;      
-     ..      
-    }    
-    .. 
-   return ret;      
-    // Перенесла переменную ближе к ее использованию  
+.. много кода  
+..        
+uint ret = OFF;         
+if ((NetSetPorts(port_index) & bit_mask) != 0)  {      
+	ret = ON;      
+..      
+}    
+.. 
+return ret;      
+// Перенесла переменную ближе к ее использованию  
     
 # 3  
-        int[] newArray;  
-        int k;  
-        for( k = 0;  k < resarray.length;  k++ ) {  
-            if (resarray[k] != 0)  
-                break;  
-        }  
-        newArray = new int[resarray.length-k];     
+int[] newArray;  
+int k;  
+for( k = 0;  k < resarray.length;  k++ ) {  
+	if (resarray[k] != 0)  
+        break;  
+}  
+newArray = new int[resarray.length-k];     
 //----------------------  
-        int subLine = 0;  
-        for (int  k = 0;  k < resarray.length;  k++ ) {  
-            if (resarray(k) != 0) {  
+int subLine = 0;  
+for (int  k = 0;  k < resarray.length;  k++ ) {  
+        if (resarray(k) != 0) {  
                 subLine = k;  
                 break  ;
             }  
         }       
-     if (resarray.length-subLine > 0) {
+if (resarray.length-subLine > 0) {
      	int[] newArray = new int [resarray.length - subLine]; 
-     }  
+}  
 // Внесла счетчик в заголовке цикла, объявила массив в месте его инициализации,    
 // ввела переменную  со смыслом     
 
 # 4    
-      int Tcur = 0;          	  // real cur pos    
-      .. много кода  
-      Tcur += Len1 - Lenold;       // +next pos    
-      Lenold = Len1;   
+int Tcur = 0;          	  // real cur pos    
+.. много кода  
+Tcur += Len1 - Lenold;       // +next pos    Lenold = Len1;   
     
-      if (Tcur < sv1) {    
-        ..    
-      }       
+if (Tcur < sv1) {    
+..    
+}       
 // ----------------------          
-      .. много кода    
-      ..  
-      int currrentPos += curLineLen - oldLineLen;       // +next pos    
-      oldLineLen = curLineLen;    
-    
-      if (currrentPos < firstSemaforPos) {    
-        ..   
-      }  
+.. много кода    
+..  
+int currrentPos += curLineLen - oldLineLen;       // +next pos    
+oldLineLen = curLineLen;    
+
+if (currrentPos < firstSemaforPos) {    
+..   
+} 
 // объявила переменную ближе к ее использованию, изменила все имана переменных  
         
 # 5  
-    boolean fret = false;    
-    .. много кода   
+boolean fret = false;    
+.. много кода   
       
-     int i, j = 0;  
-     for (int i = 0; i <= tab1.length-tab2.length; i++ ) {  
-            for (int j = 0; j <= tab1[0].length - tab2[0].length; j++) {  
-                fret = ifsubarr2(tab1, tab2, i, j);  
-                if (fret)  
-                    return fret;  
-            }  
+int i, j = 0;  
+for (int i = 0; i <= tab1.length-tab2.length; i++ ) {  
+        for (int j = 0; j <= tab1[0].length - tab2[0].length; j++) {  
+        fret = ifsubarr2(tab1, tab2, i, j);  
+        if (fret)  
+                return fret;  
         }  
-      return fret;  
+}  
+return fret;  
 // ---------------------------------              
-      for (i = 0; i <= baseTabPosition.length - subTabPosition.length; i++ ) {  
-            for (j = 0; j <= baseTabPosition[0].length - subTabPosition[0].length; j++) {  
-                if (isSubArrray(baseTabPosition, subTabPosition, i, j))  
-                    return true;  
-            }  
+for (i = 0; i <= baseTabPosition.length - subTabPosition.length; i++ ) {  
+        for (j = 0; j <= baseTabPosition[0].length - subTabPosition[0].length; j++) {  
+        	if (isSubArrray(baseTabPosition, subTabPosition, i, j))  
+                return true;  
         }  
-  return false;  
-
- // Внесла счетчики в заголовок цикла, избавилась от лишней переменной 
- // переименовала остальные переменные и функцию       
+}  
+return false;  
+// Внесла счетчики в заголовок цикла, избавилась от лишней переменной 
+// переименовала остальные переменные и функцию       
         
 # 6
-    class   AIOService       
-    {  
-        protected:  
-        AInterface* FInterface;  
-        AProtocol*  FProtocol;  
-        ASreing name;  
-        AString comment;  
+class   AIOService       
+{  
+	protected:  
+	AInterface* FInterface;  
+	AProtocol*  FProtocol;  
+	ASreing name;  
+	AString comment;  
         ..  
         
    public:  
@@ -124,22 +122,22 @@ AIOService::AIOService (AString namе , AString comment)
 
 # 7   
 public static boolean LineAnalysis(String line)  
-    {   
-        String s1 = line;    
-     . .   
-    }  
-// ---------------------------  
-   public static boolean LineAnalysis(String line)  
-    {  
+{   
+	String s1 = line;    
+	..   
+}  
+// ---------------------------    
+public static boolean LineAnalysis(String line)  
+{  
         String inputLine =new String(line);  
-     ..  
+	..  
     }  
 // Создала новый экземпляр типа String c теми же данными  
 // переименовала новую строку  
 
 # 8  
-   public static String BastShoe(String command) {  
-        int cmd = 0;  
+ public static String BastShoe(String command) {  
+	int cmd = 0;  
         String sc = command.substring(0, 1);  
     ..  
 }  
@@ -157,21 +155,21 @@ static ins=t lastCommandTypePos = 1;
 // переименовала новую строку
 
 # 9  
-  public static void MatrixChange (char[][] stmp, char[][] stmp2) {  
-        int S1 = stmp.length;  
-        int S2 = stmp[0].length;  
+public static void MatrixChange (char[][] stmp, char[][] stmp2) {  
+int S1 = stmp.length;  
+int S2 = stmp[0].length;  
   
-        for (int x = 0; x < S1; x++) {  
-            for (int y = 0; y < S2; y++) {  
+for (int x = 0; x < S1; x++) {  
+        for (int y = 0; y < S2; y++) {  
                 stmp[x][y] = stmp2[x][y];  
-            }  
         }  
-    }  
- // -------------------------  
-   public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {  
-        int FirstArrayLenRow  = arrCopyTo.length;  
-        int SecondArrayLenRow = arrCopyFrom[0].length;  
-        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght);  
+}  
+}  
+// -------------------------  
+public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {  
+	int FirstArrayLenRow  = arrCopyTo.length;  
+	int SecondArrayLenRow = arrCopyFrom[0].length;  
+        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );  
   
 	for (int i = 0; i < arrCopyTo.lenght; i++)  {  
 		retArrayCopy[i]  = arrCopyTo[i].clone();
@@ -181,50 +179,49 @@ static ins=t lastCommandTypePos = 1;
             for (int y = 0; y < SecondArrayLenRow; y++) {  
                 retArrayCopy[x][y] = arrCopyFrom[x][y];  
             }  
-        }  
-    }  
-  return retArrayCopy;      
+        }    
+  return retArrayCopy; 
+  }     
 // Создала новый массив - копию входного  
 // Переименовала переменные  
 
-# 10   
-class   AInterface  :   public  AObject  
-{  
-protected:  
-    HANDLE	Handl;  
-    long    FTimeOut;  
-    AFlag   FPortOptions;  
+# 10     
+class   AInterface  :   public  AObject    
+{   
+protected:    
+    HANDLE	Handl;    
+    long    FTimeOut;    
+    AFlag   FPortOptions;    
   
-public:  
+public:    
 ..  
 };  
 //--------------------  
-AInterface::AInterface(AString name, AString comment)  
-          : AObject (name, comment)  
-{  
-    Handl = INVALID_HANDLE;  
-    FTimeOut = DEFAULT_TIMEOUT; 
-    FPortOptions = 0;  
-}  
-//добавила инициализацию FTimeOut и FPortOptions в конструкторе класса  
+AInterface::AInterface(AString name, AString comment)    
+          : AObject (name, comment)    
+{   
+    Handl = INVALID_HANDLE;   
+    FTimeOut = DEFAULT_TIMEOUT;   
+    FPortOptions = 0;    
+}   
+//добавила инициализацию FTimeOut и FPortOptions в конструкторе класса   
   
-# 11   
-    void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)    
-    {   
-    	uint    cf;   
-    	switch (sid)  
-    {  
-    case CONFIRM_NET_SOUND_SIGNAL:    
-    case CONFIRM_NET_LIGHT_SIGNAL:    
+# 11     
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)     
+{   
+	uint    cf;   
+    	 switch (sid) { 
+     
+     	case CONFIRM_NET_SOUND_SIGNAL:    
+     	case CONFIRM_NET_LIGHT_SIGNAL:    
     ..     
-   }   
+    } 
  }   
-//--------------------  
-   
-void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)  
-{  
-    switch (sid) 
-    {
+//--------------------   
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)    
+{    
+    switch (sid)   
+    {  
     	case CONFIRM_NET_SOUND_SIGNAL:
     	case CONFIRM_NET_LIGHT_SIGNAL:
 	..
@@ -233,37 +230,37 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
    uint    countConfirms = 0;
    ..
 }
-// Переместила и проинициализировала функцию
+// проинициализировала переменную  
 
-# 12  
-static int  const MOVE = 0x10 ;          
-static int const DAMAGED =  0x40 ;          
-static int const UNKNOWN = 0x0F ; 
-//Ввела статические переменные вместо обычных
+# 12    
+static int  const MOVE = 0x10 ;            
+static int const DAMAGED =  0x40 ;            
+static int const UNKNOWN = 0x0F ;   
+//Ввела статические переменные вместо обычных  
 
-# 13  
-BeSystem::BeSystem()
-{
-    REESTR->FSystem = this;
+# 13    
+BeSystem::BeSystem()  
+{  
+    REESTR->FSystem = this;  
 
-    TimerValue = 0;
+    TimerValue = 0;  
     
-    firstKTCConfirm = false;
-    firstKTCErr = false;
-    lamp_blink_mgp = false;
-}
+    firstKTCConfirm = false;  
+    firstKTCErr = false;  
+    lamp_blink_mgp = false;  
+}  
 //------------------------
-BeSystem::BeSystem()
-{
-    REESTR->FSystem = this; 
+BeSystem::BeSystem()  
+{  
+    REESTR->FSystem = this;   
     
-    firstKTCConfirm = false;
-    firstKTCErr = false;
-    lampBlinkMgp = false;
-}
-// Убрала TimerValue - нигде не используется, изменила имя переменной
+    firstKTCConfirm = false;  
+    firstKTCErr = false;  
+    lampBlinkMgp = false;  
+}  
+// Убрала TimerValue - нигде не используется, изменила имя переменной  
 
-# 14
+# 14  
 
 сlass   BeSystem : public BeClass
 {
@@ -276,59 +273,57 @@ BeSystem::BeSystem()
 
 	void    UserFixedConfig();
 	bool    UserLoadConfig();
-..
+ ..
 } 
--------------------
-BeSystem::BeSystem()
-{
-    REESTR->FSystem = this;
+//-------------------
+BeSystem::BeSystem()  
+{  
+    REESTR->FSystem = this;  
     
-    firstKTCConfirm = false;
-    firstKTCErr = false;
-    lampBlinkMgp = false;
+    firstKTCConfirm = false;  
+    firstKTCErr = false;  
+    lampBlinkMgp = false;  
 
-    AlarmStepList = 0;
-    ExtraStepList = 0;    
-}
-// Проинициализировала AlarmStepList, ExtraStepList
+    AlarmStepList = 0;  
+    ExtraStepList = 0;      
+}  
+// Проинициализировала AlarmStepList, ExtraStepList  
 
+# 15  
 
-# 15
+class   BeSyscontrol  : public BeDevice  
+{  
+protected:  
+    _timevalue      FAlarmOilTimeMs;  
+    _timevalue      FExtraSignalTimeMs;  
 
-class   BeSyscontrol  : public BeDevice
-{
-protected:
-
-    _timevalue      FAlarmOilTimeMs;
-    _timevalue      FExtraSignalTimeMs;
-
-    BeReadSignal*   FIO_SYSCONTR_NZ_OBOROTY_MAX;
+    BeReadSignal*   FIO_SYSCONTR_NZ_OBOROTY_MAX;  
  
-    bool LampaBlink;
-    bool LampOn;
+    bool LampaBlink;  
+    bool LampOn;  
  
-    bool IskraOn;
-    ..
-} 
-//------------------
-BeSyscontrol::BeSyscontrol (int devid, char *strid)
-            : BeDevice (devid, strid, SYSCONTROL_SIGNAL_COUNT)
-{ 
-     if ((strid == 0) || (*strid == 0))
-        ErrorDetect();
+    bool IskraOn;  
+    ..  
+}   
+//------------------  
+BeSyscontrol::BeSyscontrol (int devid, char *strid)  
+            : BeDevice (devid, strid, SYSCONTROL_SIGNAL_COUNT)  
+{   
+     if ((strid == 0) || (*strid == 0))  
+        ErrorDetect();  
  
-    FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");
+    FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");  
 
-    BlinkTimer = 0;
-    FExtraSignalTimeMs = 1000;
-    FAlarmOilTimeMs    = 3000;
+    BlinkTimer = 0;  
+    FExtraSignalTimeMs = 1000;  
+    FAlarmOilTimeMs    = 3000;  
      
-    IskraFlag = false;           
-    LampaBlink = false;
-    LampOn = true;
- }
-// добавила инициализацию булевых переменных в конструкторе
-// изменила имена переменных
+    IskraFlag = false;             
+    LampaBlink = false;  
+    LampOn = true;  
+ }  
+// добавила инициализацию булевых переменных в конструкторе  
+// изменила имена переменных  
 
 
 
