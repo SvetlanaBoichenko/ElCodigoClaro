@@ -173,7 +173,6 @@ public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {
 	for (int i = 0; i < arrCopyTo.lenght; i++)  {  
 		retArrayCopy[i]  = arrCopyTo[i].clone();
 	}  
-  
        for (int x = 0; x < FirstArrayLenRow; x++) {  
             for (int y = 0; y < SecondArrayLenRow; y++) {  
                 retArrayCopy[x][y] = arrCopyFrom[x][y];  
@@ -190,8 +189,7 @@ class   AInterface  :   public  AObject
 protected:    
     HANDLE	Handl;    
     long    FTimeOut;    
-    AFlag   FPortOptions;    
-  
+    AFlag   FPortOptions;     
 public:    
 ..  
 };  
@@ -241,9 +239,7 @@ static int const UNKNOWN = 0x0F ;
 BeSystem::BeSystem()  
 {  
     REESTR->FSystem = this;  
-
-    TimerValue = 0;  
-    
+    TimerValue = 0;    
     firstKTCConfirm = false;  
     firstKTCErr = false;  
     lamp_blink_mgp = false;  
