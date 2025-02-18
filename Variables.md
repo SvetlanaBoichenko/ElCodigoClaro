@@ -217,17 +217,16 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
 //--------------------   
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)    
 {    
-    switch (sid)   
-    {  
-    	case CONFIRM_NET_SOUND_SIGNAL:
-    	case CONFIRM_NET_LIGHT_SIGNAL:
-	..
-  	..
-   }
-   uint    countConfirms = 0;
-   ..
-}
-// проинициализировала переменную  
+    switch (sid)     
+    {   
+    	case CONFIRM_NET_SOUND_SIGNAL:  
+    	case CONFIRM_NET_LIGHT_SIGNAL:  
+	..  
+   }  
+   uint    countConfirms = 0;  
+   ..  
+}  
+// проинициализировала переменную    
 
 # 12    
 static int  const MOVE = 0x10 ;            
