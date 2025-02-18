@@ -222,10 +222,10 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
     	case CONFIRM_NET_SOUND_SIGNAL:  
     	case CONFIRM_NET_LIGHT_SIGNAL:  
 	..  
-   }  
-   uint    countConfirms = 0;  
-   ..  
-}  
+   }    
+   uint    countConfirms = 0;    
+   ..   
+}   
 // проинициализировала переменную    
 
 # 12    
