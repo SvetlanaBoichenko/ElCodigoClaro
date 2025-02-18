@@ -162,11 +162,11 @@ int S2 = stmp[0].length;
 for (int x = 0; x < S1; x++) {  
         for (int y = 0; y < S2; y++) {  
                 stmp[x][y] = stmp2[x][y];  
-        }  
-}  
-}  
-// -------------------------  
-public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {  
+        	}  
+	}  
+}   
+// -------------------------   
+public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {   
 	int FirstArrayLenRow  = arrCopyTo.length;  
 	int SecondArrayLenRow = arrCopyFrom[0].length;  
         char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );  
@@ -196,15 +196,15 @@ protected:
 public:    
 ..  
 };  
-//--------------------  
-AInterface::AInterface(AString name, AString comment)    
-          : AObject (name, comment)    
-{   
-    Handl = INVALID_HANDLE;   
+//--------------------   
+AInterface::AInterface(AString name, AString comment)      
+          : AObject (name, comment)      
+{     
+    Handl = INVALID_HANDLE;     
     FTimeOut = DEFAULT_TIMEOUT;   
     FPortOptions = 0;    
-}   
-//добавила инициализацию FTimeOut и FPortOptions в конструкторе класса   
+}     
+//добавила инициализацию FTimeOut и FPortOptions в конструкторе класса     
   
 # 11     
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)     
