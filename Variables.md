@@ -203,12 +203,11 @@ AInterface::AInterface(AString name, AString comment)
 }     
 //добавила инициализацию FTimeOut и FPortOptions в конструкторе класса     
   
-# 11     
-void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)     
-{    
-	uint    cf;     
-	switch (sid) {     
-     
+# 11      
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)       
+{     
+	uint    cf;       
+	switch (sid) {      
      		case CONFIRM_NET_SOUND_SIGNAL:      
      		case CONFIRM_NET_LIGHT_SIGNAL:      
        		..       
@@ -296,7 +295,6 @@ BeSyscontrol::BeSyscontrol (int devid, char *strid)
 {    
      if ((strid == 0) || (*strid == 0))    
         ErrorDetect();   
- 
     FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");    
     BlinkTimer = 0;   
     FExtraSignalTimeMs = 1000;    
