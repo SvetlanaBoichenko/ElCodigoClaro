@@ -1,13 +1,13 @@
 # 1 
-int i;
-for (i = basebit;  i <= lastbit;  i++)
-    BitsOldValue[i] = 0xFF;  
-//-------------------  
-static int NO_INIT   =  0xFF;
-for ( int i = basebit;  i <= lastbit;  i++)
-    BitsOldValue[i] = NO_INIT;      
-// Внесла объявления счетчика цикла в заголовок цикла, ввела константу для определения 
-// неинициализированной переменной   
+int i;  
+for (i = basebit;  i <= lastbit;  i++)  
+    BitsOldValue[i] = 0xFF;    
+//-------------------    
+static int NO_INIT   =  0xFF;  
+for ( int i = basebit;  i <= lastbit;  i++)  
+    BitsOldValue[i] = NO_INIT;        
+// Внесла объявления счетчика цикла в заголовок цикла, ввела константу для определения   
+// неинициализированной переменной     
 
 # 2  
     uint ret = OFF;
