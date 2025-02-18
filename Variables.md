@@ -5,7 +5,7 @@ for (i = basebit;  i <= lastbit;  i++)
 //-------------------
 static int NO_INIT   =  0xFF;
 for ( int i = basebit;  i <= lastbit;  i++)
-    BitsOldValue[i] = NO_INIT;  
+    BitsOldValue[i] = NO_INIT;    
 // Внесла объявления счетчика цикла в заголовок цикла, ввела константу для определения 
 // неинициализированной переменной   
 
@@ -30,7 +30,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
 
     }  
     .. 
-   return ret;  
+   return ret;    
     // Перенесла переменную ближе к ее использованию
     
 # 3
@@ -41,8 +41,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
             if (resarray[k] != 0)
                 break;
         }
-        newArray = new int[resarray.length-k];
-    
+        newArray = new int[resarray.length-k];   
 //----------------------
         int subLine = 0;
         for(int  k = 0;  k < resarray.length;  k++ ) {
@@ -68,7 +67,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
         ..  
       }  
     
-----------------------        
+// ----------------------        
       .. много кода  
       ..
       int currrentPos += curLineLen - oldLineLen;       // +next pos  
@@ -120,7 +119,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
 	AIOService (AString name, AString comment);
 	virtual	~AIOService();
 };
-    
+//---------------      
 AIOService::AIOService (AString namе , AString comment)       
 {
     FInterface  = 0;
