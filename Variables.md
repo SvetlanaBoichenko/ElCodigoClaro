@@ -41,18 +41,19 @@ for ( int i = basebit;  i <= lastbit;  i++)
         newArray = new int[resarray.length-k];     
 //----------------------  
         int subLine = 0;  
-        for(int  k = 0;  k < resarray.length;  k++ ) {  
+        for (int  k = 0;  k < resarray.length;  k++ ) {  
             if (resarray(k) != 0) {  
                 subLine = k;  
                 break  ;
             }  
-        }  
-        
-        int[] newArray = new int[resarray.length-k];  
-// Внесла счетчик в заголовке цикла, объявила массив в месте его инициализации,  
-// ввела переменную  со смыслом   
+        }       
+     if (resarray.length-subLine > 0) {
+     	int[] newArray = new int [resarray.length - subLine]; 
+     }  
+// Внесла счетчик в заголовке цикла, объявила массив в месте его инициализации,    
+// ввела переменную  со смыслом     
 
-# 4  
+# 4    
       int Tcur = 0;          	  // real cur pos    
       .. много кода  
       Tcur += Len1 - Lenold;       // +next pos    
@@ -85,8 +86,7 @@ for ( int i = basebit;  i <= lastbit;  i++)
             }  
         }  
       return fret;  
-// ---------------------------------     
-         
+// ---------------------------------              
       for (i = 0; i <= baseTabPosition.length - subTabPosition.length; i++ ) {  
             for (j = 0; j <= baseTabPosition[0].length - subTabPosition[0].length; j++) {  
                 if (isSubArrray(baseTabPosition, subTabPosition, i, j))  
