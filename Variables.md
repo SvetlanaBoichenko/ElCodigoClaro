@@ -169,8 +169,7 @@ for (int x = 0; x < S1; x++) {
 public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {   
 	int FirstArrayLenRow  = arrCopyTo.length;  
 	int SecondArrayLenRow = arrCopyFrom[0].length;  
-        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );    
-    
+        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );        
 	for (int i = 0; i < arrCopyTo.lenght; i++)  {  
 		retArrayCopy[i]  = arrCopyTo[i].clone();
 	}  
@@ -252,8 +251,7 @@ BeSystem::BeSystem()
 //------------------------
 BeSystem::BeSystem()  
 {  
-    REESTR->FSystem = this;   
-    
+    REESTR->FSystem = this;      
     firstKTCConfirm = false;  
     firstKTCErr = false;  
     lampBlinkMgp = false;  
@@ -262,68 +260,58 @@ BeSystem::BeSystem()
 
 # 14  
 
-сlass   BeSystem : public BeClass
-{
- public:
-
-    BeAlarm *AlarmStepList;
-    BeAlarm *ExtraStepList;
-
-	pthread_t	FThreadId;
-
-	void    UserFixedConfig();
-	bool    UserLoadConfig();
- ..
-} 
-//-------------------
-BeSystem::BeSystem()  
+сlass   BeSystem : public BeClass  
 {  
-    REESTR->FSystem = this;  
-    
-    firstKTCConfirm = false;  
-    firstKTCErr = false;  
-    lampBlinkMgp = false;  
-
-    AlarmStepList = 0;  
-    ExtraStepList = 0;      
+ public:   
+    BeAlarm *AlarmStepList;  
+    BeAlarm *ExtraStepList;  
+	pthread_t	FThreadId;  
+	void    UserFixedConfig();  
+	bool    UserLoadConfig();  
+ ..  
 }  
-// Проинициализировала AlarmStepList, ExtraStepList  
+//-------------------  
+BeSystem::BeSystem()    
+{  
+    REESTR->FSystem = this;    
+    firstKTCConfirm = false;    
+    firstKTCErr = false;    
+    lampBlinkMgp = false;    
+    AlarmStepList = 0;    
+    ExtraStepList = 0;       
+}   
+// Проинициализировала AlarmStepList, ExtraStepList   
 
 # 15  
 
-class   BeSyscontrol  : public BeDevice  
+class   BeSyscontrol  : public BeDevice   
 {  
 protected:  
     _timevalue      FAlarmOilTimeMs;  
     _timevalue      FExtraSignalTimeMs;  
-
-    BeReadSignal*   FIO_SYSCONTR_NZ_OBOROTY_MAX;  
- 
-    bool LampaBlink;  
-    bool LampOn;  
- 
+    BeReadSignal*   FIO_SYSCONTR_NZ_OBOROTY_MAX;    
+    bool LampaBlink;    
+    bool LampOn;   
     bool IskraOn;  
-    ..  
+    ..   
 }   
-//------------------  
-BeSyscontrol::BeSyscontrol (int devid, char *strid)  
-            : BeDevice (devid, strid, SYSCONTROL_SIGNAL_COUNT)  
-{   
-     if ((strid == 0) || (*strid == 0))  
-        ErrorDetect();  
+//------------------    
+BeSyscontrol::BeSyscontrol (int devid, char *strid)    
+            : BeDevice (devid, strid, SYSCONTROL_SIGNAL_COUNT)    
+{    
+     if ((strid == 0) || (*strid == 0))    
+        ErrorDetect();   
  
-    FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");  
-
-    BlinkTimer = 0;  
-    FExtraSignalTimeMs = 1000;  
-    FAlarmOilTimeMs    = 3000;  
-     
-    IskraFlag = false;             
-    LampaBlink = false;  
-    LampOn = true;  
- }  
-// добавила инициализацию булевых переменных в конструкторе  
-// изменила имена переменных  
+    FIO_SYSCONTR_NZ_OBOROTY_MAX  = new BeReadSignal (this, SYSCONTR_NZ_OBOROTY_MAX, "NZ_OBOROTY_MAX");    
+    BlinkTimer = 0;   
+    FExtraSignalTimeMs = 1000;    
+    FAlarmOilTimeMs    = 3000;    
+    IskraFlag = false;               
+    LampaBlink = false;    
+    LampOn = true;   
+ }   
+// добавила инициализацию булевых переменных в конструкторе    
+// изменила имена переменных    
 
 
 
