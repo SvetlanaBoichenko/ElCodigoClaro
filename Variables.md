@@ -169,8 +169,8 @@ for (int x = 0; x < S1; x++) {
 public static char[][] MatrixChange (char[][] arrCopyTo, char[][] arrCopyFrom) {   
 	int FirstArrayLenRow  = arrCopyTo.length;  
 	int SecondArrayLenRow = arrCopyFrom[0].length;  
-        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );  
-  
+        char [][] retArrayCopy = new char (arrCopyTo.lenght),arrCopyTo(0).lenght );    
+    
 	for (int i = 0; i < arrCopyTo.lenght; i++)  {  
 		retArrayCopy[i]  = arrCopyTo[i].clone();
 	}  
