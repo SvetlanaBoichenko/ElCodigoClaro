@@ -205,15 +205,15 @@ AInterface::AInterface(AString name, AString comment)
   
 # 11     
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)     
-{   
-	uint    cf;   
-    	 switch (sid) { 
+{    
+	uint    cf;     
+	switch (sid) {     
      
-     	case CONFIRM_NET_SOUND_SIGNAL:    
-     	case CONFIRM_NET_LIGHT_SIGNAL:    
-    ..     
-    } 
- }   
+     		case CONFIRM_NET_SOUND_SIGNAL:      
+     		case CONFIRM_NET_LIGHT_SIGNAL:      
+       		..       
+    }   
+ }      
 //--------------------   
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)    
 {    
