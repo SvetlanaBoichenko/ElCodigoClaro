@@ -268,6 +268,33 @@ int	FSecurity;
 //Изменила уровень досnупа на более строгий  
 
 # 10
+public class DynHashArray  
+{  
+    public int count;  
+    public int capacity;  
+    public int step;  
+    public DynHashArray()  
+    {  
+        count = 0;  
+        step = 1;  
+        makeArray(17);  
+    } 
+//----------------  
+public class DynHashArray  
+{  
+    private int count;    
+    private int capacity;    
+    private int step;  
+    public DynHashArray();    
+    {  
+        count = 0;    
+        step = 1;    
+        makeArray(17);    
+    }  
+int GetCount() {return count};  
+int GetCapacity() {return Capacity};  
+//Изменила уровень досnупа на более строгий , ввела get и set для переменных,которые могут быть вызваны извне  
 
+# 11
 
 
