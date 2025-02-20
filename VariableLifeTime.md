@@ -242,4 +242,32 @@ oid GT2_viIsrCAPREL(void) interrupt 0X27
 // Из трех переменных есть смысл в глобальности только для Freq, ее оставила глобальной  
 
 # 9
+class	TPropElement  
+{  
+protected:
+int	FID;  
+bool	FIOFlag;  
+bool	FIsTag;  
+int	FType;  
+bool	FAccess;  
+int	FSecurity;  
+...   
+}    
+//---------------
+class	TPropElement  
+{  
+private:
+int	FID;  
+bool	FIOFlag;  
+bool	FIsTag;  
+int	FType;  
+bool	FAccess;  
+int	FSecurity;  
+...   
+}  
+//Изменила уровень досnупа на более строгий  
+
+# 10
+
+
 
