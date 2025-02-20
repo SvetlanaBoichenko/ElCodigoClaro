@@ -180,7 +180,6 @@ char    FOutBuf[IO_BUF_LEN+1];
         ..  
         ..  
    }  
-  
 void CodeFrom()  
 {  
     NetErrorFlag = false;    
@@ -215,5 +214,32 @@ void    SetBusPortFunction (int portno, uint basebit, uint lastbit)
 }  
 //Убрала объявление переменной как глобальной. Не было больше использования  
 
-# 7
+# 7-8
+extern unsigned long   Freq;
+extern unsigned long   TimeCount;
+extern long            ZubCount; 
+//--------------------  
+extern unsigned long   Freq;  
+unsigned long   TimeCount;  
+long            ZubCount;  
+oid GT2_viIsrCAPREL(void) interrupt 0X27  
+{  
+	ZubCount++;  
+   TimeCount += CAPREL;   
+	if(T5IR==0)  
+	{  
+		Freq = CAPREL;  
+		os_send_signal (Turbo_Task);  
+	}  	
+	else  	
+	{  
+		T5IR = 0;   
+        Freq = CAPREL;  
+        Freq = 0;  
+		os_send_signal (Turbo_Task);  
+	}  
+}  
+// Из трех переменных есть смысл в глобальности только для Freq, ее оставила глобальной  
+
+# 9
 
