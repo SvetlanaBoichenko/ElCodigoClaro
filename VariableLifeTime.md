@@ -108,10 +108,9 @@ Node LookBorderCase (Node listHead) {
         ..
    }   
    //-----------------  
-   bool InsertForBorderCase (LinkedList2 list, Node _nodeAfter, Node _nodeToInsert) {  
-      Node listHead = list.head;
-      Node listTail = list.tail;
-      
+   bool InsertForBorderCase (LinkedList2 list, Node _nodeAfter, Node _nodeToInsert) {   
+      Node listHead = list.head;  
+      Node listTail = list.tail;        
       if (this.head == null && _nodeAfter == null) {  
             listHead = _nodeToInsert;  
             _nodeToInsert.next = null;  
@@ -151,8 +150,70 @@ Node LookBorderCase (Node listHead) {
    //Перенесла вставку узлов в список для пограничных случаев в отдельную функцию
         
 # 5
+..  
+extern char    FInpBuf[];  
+extern char    FOutBuf[];  
+..  
+//-------------------
+char    FInpBuf[IO_BUF_LEN+1];    
+char    FOutBuf[IO_BUF_LEN+1];    
+#ifndef PZU   
+    void ASC_viIsrRx (void) interrupt S0RINT  
+#else  
+    static void ASC_viIsrRx (void) interrupt S0RINT using rx_reg  
+#endif  
+{  
+    if (NetMode == RECEIVE)  	
+    {  
+        inp_byte = ASC_uwGetData();   
+        if (FrameInputFlag == false)    
+        {  
+            switch (inp_byte)  
+            {  
+            case    '$':  
+            case    '#':  
+                FInpBufLen = 0;  
+                FrameInputFlag = true;  
+                break;  
+            }  
+        }    
+        ..  
+        ..  
+   }  
+  
+void CodeFrom()  
+{  
+    NetErrorFlag = false;    
+    FInpCommand = NET_COMMAND_NONE;  
+    FOutCommand = NET_COMMAND_NO_ANSWER;  
+    FNetPort = 0;  
+    if (FInpBuf[FInpBufLen-1] != CR)  
+    {
+        NetErrorFlag = true;  
+        return;  
+    }  
+    FInpBufLen--;  
+..    
+..    
+}    
+// Объединила чтение порта и обработку прочитанного в один модуль, сделала массв не глобальным  
 
+# 6
+extern uint PortParamTab[PORT_COUNT][PORT_PARAM_COUNT];
+//-------------------  
+uint PortParamTab[PORT_COUNT][PORT_PARAM_COUNT]  
+void    SetBusPortFunction (int portno, uint basebit, uint lastbit)  
+{  
+    if ((IsBusSignal (basebit) == false) || (IsBusSignal (lastbit) == false))  
+    {  
+        SetError();  
+        return;  
+    }  
+    InitPort (basebit, lastbit);  
+    PortParamTab[portno][PORT_PARAM_basebit]    = basebit;     
+    PortParamTab[portno][PORT_PARAM_lastbit]    = lastbit;      
+}  
+//Убрала объявление переменной как глобальной. Не было больше использования  
 
-
-
+# 7
 
