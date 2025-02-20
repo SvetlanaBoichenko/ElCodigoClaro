@@ -14,7 +14,7 @@ class BeAlarm
     int         FCount;  
     ..  
 };    
- // Изменила уровень досиупа на более строгий
+ // Изменила уровень досnупа на более строгий
 
  # 2
  ..  
@@ -40,17 +40,32 @@ return null;
 // Перенесла поиск узла у отдельную функцию  
 
 # 3
-    ArrayList<Node> nodes = new ArrayList<Node>();  
-        if (this.head == null)  
+ArrayList<Node> nodes = new ArrayList<Node>();  
+if (this.head == null)  
+      return nodes;  
+if (this.head.next == null && this.head.value == _value) {   
+      nodes.add(this.head);  
+      return (nodes);  
+}  
+if (this.head.next == null) {  
             return nodes;  
-        if (this.head.next == null && this.head.value == _value) {   
-            nodes.add(this.head);  
-            return (nodes);  
-        }  
-        if (this.head.next == null) {  
-            return nodes;  
-        }  
+}  
 //--------------------------  
+Node LookBorderCase (Node listHead) {   
+   ArrayList<Node> nodes = new ArrayList<Node>();   
+   if (listHead == null)  
+      return nodes;  
+   if (listHead.next == null && listHead.value == _value) {     
+      nodes.add(this.head);   
+      return (nodes);  
+   }   
+   if (listHead.next == null) {   
+         return nodes;  
+   }   
+}  
+//Перенесла поиск пограничных случаев для узлов в отдельную функцию
+
+# 4
 
 
 
