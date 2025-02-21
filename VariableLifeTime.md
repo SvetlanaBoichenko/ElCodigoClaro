@@ -65,7 +65,7 @@ Node LookBorderCase (Node listHead) {
 }  
 //Перенесла поиск пограничных случаев для узлов в отдельную функцию
 
-# 4
+# 4-5
  if (this.head == null && _nodeAfter == null) {  
             this.head = _nodeToInsert;  
             _nodeToInsert.next = null;  
@@ -111,45 +111,49 @@ Node LookBorderCase (Node listHead) {
    bool InsertForBorderCase (LinkedList2 list, Node _nodeAfter, Node _nodeToInsert) {   
       Node listHead = list.head;  
       Node listTail = list.tail;        
-      if (this.head == null && _nodeAfter == null) {  
+      if (listHead == null && _nodeAfter == null) {  
             listHead = _nodeToInsert;  
             _nodeToInsert.next = null;  
             listTail = _nodeToInsert;  
             return true;  
         }  
-        if (_nodeAfter == null) {  
-            listHead.prev = _nodeToInsert;  
-            _nodeToInsert.next = this.head;  
-            listHead = _nodeToInsert;  
-            listHead.prev = null;   
-            return true;  
-        }  
-        if (this.head == _nodeAfter && this.head.next != null) {   
-            _nodeToInsert.prev = this.head;  
-            _nodeToInsert.next = this.head.next;  
-            _nodeToInsert.next.prev = _nodeToInsert;  
-            listHead.next = _nodeToInsert;   
-            return true;  
-        }  
-        if (this.head == _nodeAfter) {  
+        
+	  if (listHead == _nodeAfter) {  
             _nodeToInsert.prev = head;  
             listHead.next = _nodeToInsert;  
             _nodeToInsert.next = null;  
             listTail = _nodeToInsert;  
             return true;  
         }  
-        if (_nodeAfter == tail) {  
+        if (_nodeAfter == listTail) {  
             _nodeAfter.next = _nodeToInsert;  
             _nodeToInsert.prev = _nodeAfter;  
             _nodeToInsert.next = null;  
             listTail = _nodeToInsert;  
             return true;   
         }  
+ 
+ 	if (_nodeAfter == null) {  
+            listHead.prev = _nodeToInsert;  
+            _nodeToInsert.next = listHead;  
+            listHead = _nodeToInsert;  
+            listHead.prev = null;   
+            return true;  
+        }  
+        if (listHead == _nodeAfter && listHead.next != null) {   
+            _nodeToInsert.prev = this.head;  
+            _nodeToInsert.next = this.head.next;  
+            _nodeToInsert.next.prev = _nodeToInsert;  
+            listHead.next = _nodeToInsert;   
+            return true;  
+        }  
+      
       return false;  
    }  
-   //Перенесла вставку узлов в список для пограничных случаев в отдельную функцию
+   //Перенесла вставку узлов в список для пограничных случаев в отдельную функцию  
+   //Перенесла использование переменной listTail ближе к ее объявлению
         
-# 5
+# 6
 ..  
 extern char    FInpBuf[];  
 extern char    FOutBuf[];  
@@ -197,7 +201,7 @@ void CodeFrom()
 }    
 // Объединила чтение порта и обработку прочитанного в один модуль, сделала массв не глобальным  
 
-# 6
+# 7
 extern uint PortParamTab[PORT_COUNT][PORT_PARAM_COUNT];
 //-------------------  
 uint PortParamTab[PORT_COUNT][PORT_PARAM_COUNT]  
@@ -214,7 +218,7 @@ void    SetBusPortFunction (int portno, uint basebit, uint lastbit)
 }  
 //Убрала объявление переменной как глобальной. Не было больше использования  
 
-# 7-8
+# 8-9
 extern unsigned long   Freq;
 extern unsigned long   TimeCount;
 extern long            ZubCount; 
@@ -241,7 +245,7 @@ oid GT2_viIsrCAPREL(void) interrupt 0X27
 }  
 // Из трех переменных есть смысл в глобальности только для Freq, ее оставила глобальной  
 
-# 9
+# 10
 class	TPropElement  
 {  
 protected:
@@ -267,7 +271,7 @@ int	FSecurity;
 }  
 //Изменила уровень досnупа на более строгий  
 
-# 10
+# 11
 public class DynHashArray  
 {  
     public int count;  
@@ -291,10 +295,153 @@ public class DynHashArray
         step = 1;    
         makeArray(17);    
     }  
-int GetCount() {return count};  
-int GetCapacity() {return Capacity};  
-//Изменила уровень досnупа на более строгий , ввела get и set для переменных,которые могут быть вызваны извне  
+int GetCount() {return count;};  
+int GetCapacity() {return Capacity;};  
+//Изменила уровень досnупа на более строгий , ввела get для переменных,которые могут быть вызваны извне  
 
-# 11
+# 12
+class   EAnalog  : public EParam  
+{  
+protected:  
+public:  
+    	float   FMinValue;  
+    	float   FMaxValue;  
+    	float   FSensorMinValue;  
+    	float   FSensorMaxValue;  
+	virtual	float	GetPresentation(float value);  
+	virtual	float	SetPresentation (float value);  
+...   
+};  
+//---------------------------  
+class   EAnalog  : public EParam  
+{  
+private:  
+    	float   FMinValue;  
+    	float   FMaxValue;  
+    	float   FSensorMinValue;  
+    	float   FSensorMaxValue;  
+public:   
+	float GetMinValue() return (FMinValue);  
+	float GetMinValue() return (FMinValue);  
+	float GettSensorMinValuee() {return (FSensorMinValue);}
+	float GettSensorMaxValuee() {return (FSensorMaxValue);}  
+ 	virtual	float	GetPresentation (float value);  
+ 	virtual	float	SetPresentation (float value);  
+...    
+};     
+//Изменила уровень досnупа на более строгий, ввела get для переменных  
 
+# 13
+class  IDClass
+{
+protected:
+public:
+    AFlag   FAttributes;
+    float   FValue;
+    int     FObjectID;
+    void    SetAttr (int flag) { FAttributes.Set (flag); };
+    bool    IsAttr  (int flag) { return (FAttributes.IsTrue (flag)); };
+    bool    FActiveClient;
+    IDClass() { FObjectID = -1; FValue = 0; FActiveClient = true; };
+    virtual ~IDClass() {FComment.~AString();};
+};
+//-------------  
+class  IDClass  
+{  
+private:  
+   	AFlag   FAttributes;  
+    	float   FValue;  
+    	int     FObjectID;  
+	bool    FActiveClient;  
+public:  
+    void    SetAttr (int flag) { FAttributes.Set (flag); }  
+    AFlag   GetAttr() {return FAttributes;}  
+    float   GetMinValue() {return (FValue); }  
+    bool    IsAttr  (int flag) { return (FAttributes.IsTrue (flag)); }     
+    IDClass() { FObjectID = -1; FValue = 0; FActiveClient = true; }  
+    virtual ~IDClass() {FComment.~AString();}  
+    ...  
+};  
+//Изменила уровень досnупа на более строгий, ввела get и set для переменных  
 
+# 14-15
+int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)  
+{  
+    if (!mIsOpen) return -2;  
+      
+    sockaddr_in sender_address;  
+    int sender_address_size;  
+    int bytes_read;  
+    int f = 0;  
+    fd_set FInput;  
+    timeval FTimeValue;  
+      
+    FD_ZERO(&FInput);  
+    FD_SET(mSocket, &FInput);  
+    FTimeValue.tv_sec     = 0;  
+    FTimeValue.tv_usec    = delta * SYS_USEC_DEVIDER;  
+      
+#if defined (__WIN32__)  
+	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
+#else  
+	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
+#endif  
+    if (f > 0)  
+    {  
+        sender_address_size = sizeof(sender_address);  
+  
+        bytes_read = recvfrom(mSocket,pBuffer,length,0,  
+                              (sockaddr*)&sender_address,&sender_address_size);  
+        if (bytes_read == SOCKET_ERROR)  
+            f = -2;  
+        else  
+            f = bytes_read;  
+    }  
+    else  
+        f = -2;  
+
+    return f;  
+}  
+//-----------------
+static int const errPortRead  = -2;
+int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)  
+{  
+    if (!mIsOpen) return  errPortRead;  
+    sockaddr_in sender_address;  
+    int resPortSelect = 0;  
+  
+    fd_set FInput;  
+    timeval FTimeValue;  
+  
+    FD_ZERO(&FInput);  
+    FD_SET(mSocket, &FInput);  
+  
+    FTimeValue.tv_sec     = 0;  
+    FTimeValue.tv_usec    = delta * SYS_USEC_DEVIDER;  
+  
+#if defined (__WIN32__)  
+	resPortSelect = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
+#else  
+	resPortSelect = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
+#endif  
+    
+    int sender_address_size = 0;  
+    int bytes_read = 0;  
+    if ( resPortCheckt > 0)  
+    {  
+        sender_address_size = sizeof(sender_address);  
+  
+        bytes_read = recvfrom(mSocket,pBuffer,length,0,  
+                              (sockaddr*)&sender_address,&sender_address_size);  
+        if (bytes_read == SOCKET_ERROR)  
+             resPortCheck =  errPortRead;  
+        else  
+            resPortCheck = bytes_read;  
+    }  
+    else  
+        resPortCheck =  errPortRead;  
+
+    return  resPortCheck;  
+}   
+//Перенесла переменные bytes_read, sender_address_size к месту их использования, проинициализировала их,
+// исправила имя переменной f
