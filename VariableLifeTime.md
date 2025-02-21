@@ -368,24 +368,24 @@ public:
 int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)  
 {  
     if (!mIsOpen) return -2;  
-      
+        
     sockaddr_in sender_address;  
     int sender_address_size;  
     int bytes_read;  
     int f = 0;  
     fd_set FInput;  
     timeval FTimeValue;  
-      
+       
     FD_ZERO(&FInput);  
     FD_SET(mSocket, &FInput);  
     FTimeValue.tv_sec     = 0;  
     FTimeValue.tv_usec    = delta * SYS_USEC_DEVIDER;  
-      
-#if defined (__WIN32__)  
-	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
-#else  
-	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
-#endif  
+       
+#if defined (__WIN32__)   
+	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);   
+#else   
+	f = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);   
+#endif   
     if (f > 0)  
     {  
         sender_address_size = sizeof(sender_address);  
@@ -402,14 +402,15 @@ int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)
 
     return f;  
 }  
-//-----------------
-static int const errPortRead  = -2;
-int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)  
-{  
-    if (!mIsOpen) return  errPortRead;  
+//-----------------  
+static int const errPortRead  = -2;  
+  
+int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)   
+{    
+    if (!mIsOpen) return  errPortRead;   
     sockaddr_in sender_address;  
     int resPortSelect = 0;  
-  
+    
     fd_set FInput;  
     timeval FTimeValue;  
   
@@ -418,13 +419,13 @@ int UDPPort::ReadData(char *pBuffer, unsigned int length, unsigned int delta)
   
     FTimeValue.tv_sec     = 0;  
     FTimeValue.tv_usec    = delta * SYS_USEC_DEVIDER;  
-  
+    
 #if defined (__WIN32__)  
 	resPortSelect = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
 #else  
 	resPortSelect = select(mSocket+1, &FInput, NULL, NULL, &FTimeValue);  
 #endif  
-    
+      
     int sender_address_size = 0;  
     int bytes_read = 0;  
     if ( resPortCheckt > 0)  
