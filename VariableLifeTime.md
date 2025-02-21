@@ -82,28 +82,28 @@ Node LookBorderCase (Node listHead) {
             return;  
         }  
         if (this.head == _nodeAfter && this.head.next != null) {   
-            _nodeToInsert.prev = this.head;  
-            _nodeToInsert.next = this.head.next;  
-            _nodeToInsert.next.prev = _nodeToInsert;  
-            this.head.next = _nodeToInsert;  
-            this.nodecount++;  
-            return;  
+             _nodeToInsert.prev = this.head;  
+             _nodeToInsert.next = this.head.next;  
+             _nodeToInsert.next.prev = _nodeToInsert;  
+             this.head.next = _nodeToInsert;  
+             this.nodecount++;  
+             return;  
         }  
         if (this.head == _nodeAfter) {  
-            _nodeToInsert.prev = head;  
-            this.head.next = _nodeToInsert;  
-            _nodeToInsert.next = null;  
-            tail = _nodeToInsert;  
-            this.nodecount++;  
-            return;  
+             _nodeToInsert.prev = head;  
+             this.head.next = _nodeToInsert;  
+             _nodeToInsert.next = null;  
+             tail = _nodeToInsert;  
+             this.nodecount++;  
+             return;  
         }  
         if (_nodeAfter == tail) {  
-            _nodeAfter.next = _nodeToInsert;  
-            _nodeToInsert.prev = _nodeAfter;  
-            _nodeToInsert.next = null;  
-            tail = _nodeToInsert;  
-            this.nodecount++;  
-            return;  
+             _nodeAfter.next = _nodeToInsert;  
+             _nodeToInsert.prev = _nodeAfter;  
+             _nodeToInsert.next = null;  
+             tail = _nodeToInsert;  
+             this.nodecount++;  
+             return;  
         }  
         ..
    }   
@@ -112,40 +112,40 @@ Node LookBorderCase (Node listHead) {
       Node listHead = list.head;  
       Node listTail = list.tail;        
       if (listHead == null && _nodeAfter == null) {  
-            listHead = _nodeToInsert;  
-            _nodeToInsert.next = null;  
-            listTail = _nodeToInsert;  
-            return true;  
+             listHead = _nodeToInsert;  
+             _nodeToInsert.next = null;  
+             listTail = _nodeToInsert;  
+             return true;  
         }  
         
 	  if (listHead == _nodeAfter) {  
-            _nodeToInsert.prev = head;  
-            listHead.next = _nodeToInsert;  
-            _nodeToInsert.next = null;  
-            listTail = _nodeToInsert;  
-            return true;  
+             _nodeToInsert.prev = head;  
+             listHead.next = _nodeToInsert;  
+             _nodeToInsert.next = null;  
+             listTail = _nodeToInsert;  
+             return true;  
         }  
         if (_nodeAfter == listTail) {  
-            _nodeAfter.next = _nodeToInsert;  
-            _nodeToInsert.prev = _nodeAfter;  
-            _nodeToInsert.next = null;  
-            listTail = _nodeToInsert;  
-            return true;   
+             _nodeAfter.next = _nodeToInsert;  
+             _nodeToInsert.prev = _nodeAfter;  
+             _nodeToInsert.next = null;  
+             listTail = _nodeToInsert;  
+             return true;   
         }  
  
  	if (_nodeAfter == null) {  
-            listHead.prev = _nodeToInsert;  
-            _nodeToInsert.next = listHead;  
-            listHead = _nodeToInsert;  
-            listHead.prev = null;   
-            return true;  
+             listHead.prev = _nodeToInsert;  
+             _nodeToInsert.next = listHead;  
+             listHead = _nodeToInsert;  
+             listHead.prev = null;   
+             return true;  
         }  
         if (listHead == _nodeAfter && listHead.next != null) {   
-            _nodeToInsert.prev = this.head;  
-            _nodeToInsert.next = this.head.next;  
-            _nodeToInsert.next.prev = _nodeToInsert;  
-            listHead.next = _nodeToInsert;   
-            return true;  
+             _nodeToInsert.prev = this.head;  
+             _nodeToInsert.next = this.head.next;  
+             _nodeToInsert.next.prev = _nodeToInsert;  
+             listHead.next = _nodeToInsert;   
+             return true;  
         }  
       
       return false;  
