@@ -7,10 +7,10 @@ bool    WriteDO (int no, WORD data)
 	if (FRB_SendSA (0, no, data) == 0)
 		ret = true;
 #else
-
-	outpw (no*2, data);        //Â ÌèíèÎñ ïî äðóãîìó óñòðîåíà îðãàíèçàöèÿ àäðåñîâ ìîäóëåé
+  
+	outpw (no*2, data);       
 	ret = true;
-
+  
 #endif
 
     return (ret);
