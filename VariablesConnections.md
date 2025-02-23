@@ -1,9 +1,9 @@
 bool    WriteDO (int no, WORD data)    
 {   
-&nbsp;&nbsp; bool ret = false;  
+&nbsp;&nbsp;  bool ret = false;  
 #ifdef __WIN32__  
-	if (FRB_SendSA (0, no, data) == 0)  
-&nbsp;&nbsp; ret = true;  
+&nbsp;&nbsp;&nbsp;   if (FRB_SendSA (0, no, data) == 0)  
+&nbsp;&nbsp;  ret = true;  
 #else 
 &nbsp;	outpw (no*2, data);           
 &nbsp;	ret = true;  
