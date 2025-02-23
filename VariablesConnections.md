@@ -9,4 +9,5 @@ bool    WriteDO (int no, WORD data)
 &nbsp; &ensp; 	ret = true;  
 #endif  
 &nbsp;   return (ret);  
-}  
+}    
+// bool ret = false присваивание происходит сразу. так как следом идет код, который может изменить эту переменную и вернуть ее значение 
