@@ -1,5 +1,6 @@
-
-	while(1)   
+# 1
+	
+ while(1)   
     &ensp; {   
    &ensp; &ensp; int resultfunc = Sys->AlarmStepList->ExecuteAlarmCommand();   
    &ensp; &ensp; &ensp; if(resultfunc < 0)  
