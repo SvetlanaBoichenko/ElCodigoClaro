@@ -12,5 +12,5 @@ bool    WriteDO (int no, WORD data)\
 
 #endif
 
-    return (ret);
+    return (ret);  
 }
