@@ -1,15 +1,9 @@
-bool    WriteDO (int no, WORD data)\
-{\
-	bool ret = false;\
-#ifdef __WIN32__\
-	if (FRB_SendSA (0, no, data) == 0)\
-		ret = true;\
-#else
++ Хлеб
++ Молочные продукты
+  1. Кефир
+  2. Ряженка
 
-	outpw (no*2, data);        //Â ÌèíèÎñ ïî äðóãîìó óñòðîåíà îðãàíèçàöèÿ àäðåñîâ ìîäóëåé
-	ret = true;
-
-#endif
-
-    return (ret);  
-}
+1. Молоко
+2. Хлебобулочные изделия
+    + Бублик
+    + Ватрушка
