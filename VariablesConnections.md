@@ -27,4 +27,14 @@ if (name.UpperCase() == "COMMENT") {
   &ensp; &ensp; value_new = AString("COMMENT_KRAN_NUMBER") + FObjectID ;  // comment contains  №<number>    
    &ensp; &ensp;...  
    }    
-// Ввела константы вместо прямого сравнения и присвоения , так как это не локальное использование
+// Ввела константы вместо прямого сравнения и присвоения значений строк , так как это не локальное использование  
+
+# 3 
+ 	REESTR->Syscontrol = new BeSyscontrol (SYS_SYGNALS, "SYSCONTROL");
+
+	SYSCONTROL->SetSignal ("BUTTON_ALARM",     "I7053",    9,      3);
+
+	SYSCONTROL->SetSignal ("ALARM_MASLO_NIZ",   "I7053",    13,      11);
+	SYSCONTROL->SetSignal ("ALARM_MASLO_VERH",  "I7053",    13,      8);
+ //
+ 
