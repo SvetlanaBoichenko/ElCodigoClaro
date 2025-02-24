@@ -33,7 +33,6 @@ if (name.UpperCase() == "COMMENT") {
  	REESTR->Syscontrol = new BeSyscontrol (SYS_SYGNALS, "SYSCONTROL");  
   
 	SYSCONTROL->SetSignal ("BUTTON_ALARM",     "I7053",    9,      3);  
-  
 	SYSCONTROL->SetSignal ("ALARM_MASLO_NIZ",   "I7053",    13,      11);  
 	SYSCONTROL->SetSignal ("ALARM_MASLO_VERH",  "I7053",    13,      8);  
  // ССлздается объект срузу после объявления, он всегда будет в этой системе, это жесткое условие
