@@ -7,7 +7,7 @@ struct  SDevice *DDArray[MAX_DEVICE_COUNT];
 ..
     std::list<int> listDevice;
     
-int arrDevice [listDevice.size()];
+int arrDevice [listDevice.size()];  
 std::copy(listDevice.begin(), listDevice.end(), arrSevice);
 
 // MAX_DEVICE_COUNT -число устройств зараннее неизвестно. Частых и быстрых обращений к массиву нет.
