@@ -33,7 +33,7 @@ friend class    ATreeElement;
 
   int  	FIncrement;
 
-	void	Expand();
+ void	Expand();
  
 ...
 
@@ -45,9 +45,9 @@ int	AList::Add (void *object)
 
     int pos = FCount;
 
-	if (FCount >= FSlotCount)
+    if (FCount >= FSlotCount)
  
-    	AList::Expand();
+    AList::Expand();
 
     FItems[pos] = object;
 
@@ -58,6 +58,7 @@ int	AList::Add (void *object)
 //-----------------------------------
  
 class	AList
+
 {
 
 protected:
