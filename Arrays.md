@@ -34,6 +34,7 @@ friend class    ATreeElement;
   int  	FIncrement;
 
 	void	Expand();
+ 
 ...
 
 };
@@ -51,6 +52,7 @@ int	AList::Add (void *object)
     FItems[pos] = object;
 
     return (FCount++);
+    
 }
 
 //-----------------------------------
@@ -73,6 +75,7 @@ friend class    ATreeElement;
 };
 
 FItems.Add(void *object); 
+
 ...
 
 //Здесь также неизвестно число устройств, однако выбран динамический массив 
