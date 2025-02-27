@@ -18,7 +18,9 @@ std::copy(listDevice.begin(), listDevice.end(), arrSevice);
 #include <list>
 ..
 class	AList
+
 {
+
 protected:
 
 friend class    ATreeElement;  
@@ -32,9 +34,11 @@ friend class    ATreeElement;
 
 	void	Expand();
 ...
+
 };
 
 int	AList::Add (void *object)
+
 {
 
     int pos = FCount;
@@ -63,6 +67,9 @@ friend class    ATreeElement;
 
 ...
 
+};
+
 FItems.Add(void *object); 
+
 
 
