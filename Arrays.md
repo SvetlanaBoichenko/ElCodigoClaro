@@ -65,7 +65,7 @@ protected:
 
 friend class    ATreeElement;  
 
- std::list void *FItems;
+ std::list <void *> FItems;
 
   int	    FCount;
   
@@ -88,6 +88,7 @@ FItems.Add(void *object);
 
 class   ValueList  : public AList
 {
+
 public:
 
     virtual __fastcall  ~ValueList();
@@ -96,8 +97,10 @@ public:
 };
 
 //-------------------------------
+
 class   ValueList  : public TList
 {
+
 public:
 
     virtual __fastcall  ~ValueList();
@@ -110,4 +113,58 @@ public:
 // Проект постобработки, данных не много, высокой скорости не требуется. Перебор списка не приведет к потерям производительности
 
 
-// 
+# 4
+    int mediana[21]={0};
+    
+    struct duomuo *stud = new struct duomuo[n];
+    
+    for(int i=0;i<n;i++) {
+    .
+    
+    .  
+     while (pazym != -1) {  
+            stud[i].paz[p]=pazym;  
+            stud[i].GP+=stud[i].paz[p];  
+            mediana[p+1]= pazym;  
+            p+=1;  
+   .
+   
+   .
+   }  
+
+//--------------
+
+   std::list<int> mediana;
+   .
+   
+   .
+   mediana.next = pazym;
+
+   
+//   int mediana[21] - лучше заменить на список, может быть выход за пределы массива mediana[p+1]= pazym;
+
+# 5
+    int a;
+         
+    for (int i = Len1-1; i >= 0; i--) {
+    
+        a = results[i];
+        .
+        
+        .
+
+    }
+   //--------------------------------------------- 
+   
+
+   for (int res : results) {
+   
+        curResValue = res;
+      
+      .
+      
+      .
+      
+   } 
+   // Избегание прямой индексации
+   
