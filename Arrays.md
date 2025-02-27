@@ -139,33 +139,21 @@ public:
    
    .
    mediana.next = pazym;
-
-   
+  
 //   int mediana[21] - лучше заменить на список, может быть выход за пределы массива mediana[p+1]= pazym;
 
 # 5
-    int a;
-         
-    for (int i = Len1-1; i >= 0; i--) {
-    
-        a = results[i];
-        .
-        
-        .
-
-    }
-   
-   //--------------------------------------------- 
-   
-   for (int res : results) {
-   
-        curResValue = res;
-      
-      .
-      
-      
-   } 
-   
+    int a;  
+    for (int i = Len1-1; i >= 0; i--) {  
+        a = results[i];  
+        .   
+        .  
+    }       
+   //---------------------------------------------     
+   for (int res : results) {  
+        curResValue = res;  
+      ..     
+   }  
    // Во избежание ошибок при переборе массива можно использовать улучшенный цикл
    
    
