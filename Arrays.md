@@ -1,7 +1,7 @@
 # 1
 #define MAX_DEVICE_COUNT    32
 
-struct  SDevice *DDArray[MAX_DEVICE_COUNT];
+struct  SDevice *DDArray[MAX_DEVICE_COUNT];  
 //--------------------------  
 #include <list>
 ..
