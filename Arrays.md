@@ -28,6 +28,7 @@ friend class    ATreeElement;
 	void	**FItems;
 
   int	    FCount;
+  
   int	    FSlotCount;
 
   int  	FIncrement;
@@ -44,6 +45,7 @@ int	AList::Add (void *object)
     int pos = FCount;
 
 	if (FCount >= FSlotCount)
+ 
     	AList::Expand();
 
     FItems[pos] = object;
@@ -63,6 +65,7 @@ friend class    ATreeElement;
  std::list void *FItems;
 
   int	    FCount;
+  
   int	    FSlotCount;
 
 ...
@@ -70,6 +73,14 @@ friend class    ATreeElement;
 };
 
 FItems.Add(void *object); 
+...
+
+//Здесь также неизвестно число устройств, однако выбран динамический массив 
+// В этой задаче добавление и удаление из массива совершается часто, и релокация может быть достаточно
+// Можно использовать список из библиотеки или создать сво1
+
+# 3
+
 
 
 
