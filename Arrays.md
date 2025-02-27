@@ -23,19 +23,19 @@ class	AList
 
 protected:
 
-friend class    ATreeElement;  
+    friend class    ATreeElement;  
 
-	void	**FItems;
+    void	**FItems;
 
-  int	    FCount;
-  
-  int	    FSlotCount;
+    int	    FCount;
+    
+    int	    FSlotCount;
+    
+    int  	FIncrement;
 
-  int  	FIncrement;
-
- void	Expand();
+    void	Expand();
  
-...
+    ...
 
 };
 
@@ -79,12 +79,35 @@ FItems.Add(void *object);
 
 ...
 
-//Здесь также неизвестно число устройств, однако выбран динамический массив 
-// В этой задаче добавление и удаление из массива совершается часто, и релокация может быть достаточно
+//Здесь также изначально неизвестно число устройств, выбран динамический массив 
+// Добавление и удаление устройств из массива совершается часто, и релокаций может быть достаточно
 // Можно использовать список из библиотеки или создать сво1
 
 # 3
+#include AList.h// AList - из прошлого примера
+
+class   ValueList  : public AList
+{
+public:
+
+    virtual __fastcall  ~ValueList();
+
+    void AddValue (float value) { Add (new ArrayValue (value)); };
+};
+
+//-------------------------------
+class   ValueList  : public TList
+{
+public:
+
+    virtual __fastcall  ~ValueList();
+
+    void AddValue (float value) { Add (new ArrayValue (value)); };
+};
+
+//Так как программ написана в среде С++ Builder удобно использовать средства TList  
+// вместо раннее используемого AList которыя является динамическим массивом. 
+// Проект постобработки, данных не много, высокой скорости не требуется. Перебор списка не приведет к потерям производительности
 
 
-
-
+// 
