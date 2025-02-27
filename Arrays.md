@@ -20,6 +20,7 @@ std::copy(listDevice.begin(), listDevice.end(), arrSevice);
 class	AList
 {
 protected:
+
 friend class    ATreeElement;  
 
 	void	**FItems;
@@ -31,9 +32,11 @@ friend class    ATreeElement;
 
 	void	Expand();
 ...
+};
 
 int	AList::Add (void *object)
 {
+
     int pos = FCount;
 
 	if (FCount >= FSlotCount)
@@ -48,7 +51,9 @@ int	AList::Add (void *object)
  
 class	AList
 {
+
 protected:
+
 friend class    ATreeElement;  
 
  std::list void *FItems;
