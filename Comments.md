@@ -52,7 +52,103 @@ bool    BeClass::Init()
     &ensp; &ensp; }  
     &ensp; &ensp; return (!FConfigError);  
 }  
+// Изменила имена переменных и сам комментарий, чтоб было более понятно
 
+# 4
+void BeKlapan2Slave::DefState()  
+{  
+    if(FLastCommand!= NO_VALUE)  
+    {  
+        FValue = FLastCommand;  //Состояние - Предыдущ поданная команда, тк концевого не видно       	
+     }  
+    else  
+       BeKlapanSlvDevice::DefState();  
+       Master->DefState();  
+}  
+//--------------------------  
+void BeKlapan2Slave::DefState()
+{
+    if(FLastCommand!= NO_VALUE) {
+        FKlapanState = FLastCommand;      	
+     } 
+   else
+       BeKlapanSlvDevice::DefState();
+       BeKlapanMaster->DefState()
+} 
+// Изменила имена переменной-состояния и имя функции, для большей ясности. Комментарий не нужен уже  
 
+# 5 
+struct  SDevice
+{
+    uint            devID; 		//идентиф устройства
+    uint            devSignalCount;	//число сигн
+    int             devState;		//Состояние
+    PExecuteFunc    *ExecuteFunc;	//Указ на ф-цию  выполнения команд
+    POnChange       *OnChangeFunc;	//Указ на ф-цию обработки изм сигнала
+    PResetFunc      *OnResetFunc;       //Указатель на функцию сброса устройства
+    uint             devTaskId;		//номер задачи обраб устр-во
+    uint            *lisDevtSignals;	// массив сигналов
+    void            *devParam;	//Структура с таймаутами и переменными
+};
+// Здесь считаю комментарии уместно для ясности в стрктуре описания свойств и функций устройства 
 
+# 6
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)
+{
+    switch (sid)
+    {
+    case CONFIRM_NET_SOUND_SIGNAL:
+    case CONFIRM_NET_LIGHT_SIGNAL:
+        if (value == ON)
+            ConfirmExecuteCommand (confirm_dd, COMMAND_ALL_ON);//Включ сигн по сети
+        else
+            ConfirmExecuteCommand (confirm_dd, COMMAND_ALL_OFF);//Выыыыыключ сигн по сети
+        break;
 
+    case CONFIRM_BUTTON_SIGNAL://Кнопка квитирование
+        if (value == ON)
+            ConfirmExecuteCommand (confirm_dd, COMMAND_ALARM_CONFIRM);
+        break;
+
+    case CONFIRM_TIMEOUT_SIGNAL://пол секунды истекли
+        ConfirmDD.Value = OFF;
+        SetBit (ConfirmDD.Signals[CONFIRM_NET_SIGNAL], OFF);
+        break;
+
+    case CONFIRM_BLINK_TIME_SIGNAL://Мигание
+        if (ConfirmParam.FBlinkFlag == false)
+            break;
+..
+}
+
+//------------------------------
+
+void ConfirmOnChange (DEVICE_DD *confirm_dd, int typeSignal, int value, int valflag)
+{
+    switch (typeSignal)
+    {
+    case CONFIRM_NET_SOUND_SIGNAL:
+    case CONFIRM_NET_LIGHT_SIGNAL:
+
+        if (value == ON)
+            ConfirmExecuteCommand (deviceConfirm, COMMAND_ON_ALL);
+        else
+            ConfirmExecuteCommand (deviceConfirm, COMMAND_OFF_ALL);
+        break;
+
+    case CONFIRM_BUTTON_SIGNAL:	
+        if (value == ON)
+            ConfirmExecuteCommand (deviceConfirm, COMMAND_ALARM_CONFIRM);
+        break;
+
+    case CONFIRM_TIMEOUT_TERMINATE:
+        ConfirmDD.Value = OFF;
+        SetBit (ConfirmDD.Signals[CONFIRM_NET_SIGNAL], OFF);
+        break;
+
+    case CONFIRM_BLINK_ON: 
+        if (ConfirmParam.FBlinkFlag == false)
+            break;
+     ..
+}
+// Изменила названия переменных и функций - уомментарии убрала
