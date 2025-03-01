@@ -26,4 +26,23 @@ if (REESTR_NO_EXIST)
     }  
     FID = NO_VALUE;  
 }  
-// Заменить 0 на крнстанту - станет более понятно   
+// Заменить 0 на константу - станет более понятно   
+
+# 3
+
+bool    BeClass::Init()
+{
+    BeClass* tmp_obj;
+
+    OnInit();
+	for (int i = 0;  i < ChildCount();  i++)
+    {
+    	tmp_obj = (BeClass*)GetChild(i);
+
+        if (tmp_obj != 0)           //Иниц портов Net Time IO
+
+            tmp_obj->Init();
+    }
+
+    return (!FConfigError);
+}
