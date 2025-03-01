@@ -31,13 +31,15 @@ if (REESTR_NO_EXIST)
 # 3
 bool    BeClass::Init()  
 {  
-    &ensp; &ensp;BeClass* tmp_obj;  
+    &ensp; &ensp; BeClass* tmp_obj;  
     &ensp; &ensp; OnInit();  
     &ensp; &ensp; for (int i = 0;  i < ChildCount();  i++)  
-    &ensp; &ensp;{  
-    	&ensp; &ensp;&ensp; &ensp;tmp_obj = (BeClass*)GetChild(i);  
-        &ensp; &ensp;&ensp; &ensp;if (tmp_obj != 0) &ensp; &ensp;&ensp; &ensp;//Иниц портов Net Time IO  
-            &ensp; &ensp;&ensp; &ensp;tmp_obj->Init();  
-    &ensp; &ensp;}  
-   &ensp; &ensp; return (!FConfigError);  
+    &ensp; &ensp; {  
+    	&ensp; &ensp;&ensp; &ensp; tmp_obj = (BeClass*)GetChild(i);  
+        &ensp; &ensp;&ensp; &ensp; if  (tmp_obj != 0) &ensp; &ensp;&ensp; &ensp;//Иниц портов Net Time IO  
+            &ensp; &ensp;&ensp; &ensp; tmp_obj->Init();  
+    &ensp; &ensp; }  
+    &ensp; &ensp; return (!FConfigError);  
 }  
+
+# 4
