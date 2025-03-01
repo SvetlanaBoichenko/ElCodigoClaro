@@ -26,20 +26,33 @@ if (REESTR_NO_EXIST)
    &ensp; &ensp; }  
     &ensp; &ensp;FID = NO_VALUE;  
 }  
-// Заменить 0 на константу - станет более понятно   
+// Заменить 0 на переменную - станет более понятно    
 
 # 3
 bool    BeClass::Init()  
 {  
-    &ensp; &ensp; BeClass* tmp_obj;  
-    &ensp; &ensp; OnInit();  
-    &ensp; &ensp; for (int i = 0;  i < ChildCount();  i++)  
-    &ensp; &ensp; {  
-    	&ensp; &ensp;&ensp; &ensp; tmp_obj = (BeClass*)GetChild(i);  
-        &ensp; &ensp;&ensp; &ensp; if  (tmp_obj != 0) &ensp; &ensp;&ensp; &ensp;//Иниц портов Net Time IO  
-            &ensp; &ensp;&ensp; &ensp; tmp_obj->Init();  
+     &ensp; &ensp; BeClass* tmp_obj;  
+    &ensp; &ensp;  for (int i = 0;  i < ChildCount();  i++)  
+    &ensp; &ensp;  {  
+     &ensp; &ensp; &ensp; &ensp;	tmp_obj = (BeClass*)GetChild(i);  
+         &ensp; &ensp; &ensp; if (tmp_obj != 0)                
+	 &ensp; &ensp; &ensp; &ensp;  tmp_obj->Init();  //Иниц портов Net TimeIO
+     &ensp; &ensp; &ensp; &ensp;}  
+     &ensp; &ensp;return (!FConfigError);    
+}  
+//-----------------------------    
+bool    BeClass::Init()  
+{  
+   &ensp; &ensp; BeClass*  curDevice;   
+   &ensp; &ensp;  for (int i = 0;  i < devChildCount();  i++)  
+   &ensp; &ensp; {  
+    	&ensp; &ensp; &ensp; &ensp; curDevice = (BeClass*) GetChild(i);  
+        &ensp; &ensp; &ensp; &ensp; if (curDevice != 0) &ensp; &ensp; &ensp; &ensp;  //Текущий устройство из списка у реестре устройств   
+        &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; curDevice->Init();  
     &ensp; &ensp; }  
     &ensp; &ensp; return (!FConfigError);  
 }  
 
-# 4
+
+
+
