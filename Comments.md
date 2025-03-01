@@ -13,8 +13,7 @@ BeClass::BeClass()
     {  
         FReestr = this;      
         FReestr = new BeReestr();  
-    }  
-  
+    }    
     FID = NO_VALUE;  
 }  
 //--------------------    
