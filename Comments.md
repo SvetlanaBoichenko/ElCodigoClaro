@@ -1,3 +1,5 @@
+// --Уместнв комментарии
+
 # 1
 #ifdef __WIN32__  
     &ensp; &ensp;FRB_ReceiveRA (0, no, data)  
@@ -7,28 +9,6 @@
 // Объясняет почему используется другая функция в случае загрузки в МиниОС   
 
 # 2
-BeClass::BeClass()  
-{  
-   &ensp; &ensp; if (FReestr == 0)   //Первый раз созд Sytem и в нем - реестр, второй  раз- Reestr не созд   
-    &ensp; &ensp;{  
-        &ensp; &ensp;&ensp; &ensp;FReestr = this;      
-        &ensp; &ensp;&ensp; &ensp;FReestr = new BeReestr();  
-    &ensp; &ensp;}    
-    &ensp; &ensp;FID = NO_VALUE;  
-}  
-//--------------------    
-bool REESRT_NO_EXIST = {return (FReestr == 0)};  
-  
-if (REESTR_NO_EXIST)      
-    &ensp; &ensp;{   
-        &ensp; &ensp;&ensp; &ensp;FReestr = this;       
-       &ensp; &ensp;&ensp; &ensp; FReestr = new BeReestr();  
-   &ensp; &ensp; }  
-    &ensp; &ensp;FID = NO_VALUE;  
-}  
-// Заменить 0 на переменную - станет более понятно    
-
-# 3
 bool    BeClass::Init()  
 {  
      &ensp; &ensp; BeClass* tmp_obj;  
@@ -52,9 +32,74 @@ bool    BeBaseClass::Init()
     &ensp; &ensp; }  
     &ensp; &ensp; return (!FConfigError);  
 }  
-// Изменила имена переменных и сам комментарий, чтоб было более понятно
+// Изменила имена переменных и сам комментарий, чтоб было более понятно  
+
+# 3 
+struct  SDevice  
+{  
+    uint            devID; 		//идентиф устройства  
+    uint            devSignalCount;	//число сигн  
+    int             devState;		//Состояние  
+    PExecuteFunc    *ExecuteFunc;	//Указ на ф-цию  выполнения команд  
+    POnChange       *OnChangeFunc;	//Указ на ф-цию обработки изм сигнала  
+    PResetFunc      *OnResetFunc;       //Указатель на функцию сброса устройства  
+    uint             devTaskId;		//номер задачи обраб устр-во  
+    uint            *lisDevtSignals;	// массив сигналов  
+    void            *devParam;	//Структура с таймаутами и переменными  
+};  
+// Здесь считаю комментарии уместно для ясности в стрктуре описания свойств и функций устройства   
 
 # 4
+int    GetTimerBit()  
+{  
+    for (int i = 0;  i <= MAX_TIM_BITS_COUNT;  i++)  
+    {  
+        if (TimBitToTask[i] == 0)	 	
+            return (i + TIM_BIT_BASE);	//IM_BIT_BASE - сдвиг для вычисления сигнала таймера в списке сигналов  
+    }  
+    SetError();		//Это если сигнал больше чем MAX_TIM_BITS_COUNT  
+    return (-1);  
+}   
+// Здесь комментарии поясняют принцип поиска сигнала в списке   
+
+
+# 5
+#define	ZUBCOUNT   	6	 // число зубов вала турбокомпрессора  
+#define TICK_PER_SECOND          (39062.5) 	//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
+#define TICK_PER_SECOND_INT      (39063)   		// округление для целого  
+#define TIME_CONVERTER          (TICK_PER_SECOND*60)	//  число тиков в минуту  
+#define PART_OF_SEC             (10)                    // т.е. секунду делим на ...  = ~100 мСек  
+#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT / PART_OF_SEC) // число тиков в сек  
+#define ERROR_FOR_OTKAZ_COUNT   (5)				    // число отказов до выставление ошибки  
+#define IZM_TIME                10      //Время замера оборотов = ~100 мСек  
+// Здесь комментарии - пояснения физических констант  
+
+# 6
+
+
+
+
+# 7
+    if(Flag)// если мы продолжаем поиск
+      {
+       CurrentChild->ADOQueryEvent->Prior();
+       ind_fld = !poiskmarker; //если начинали поиск по маркеру, то и продолжим по маркеру и наооборот
+      }
+    else
+      {
+       poiskmarker = !ind_fld;
+       if(ind_fld == 0)
+         CurrentChild->ADOQueryEvent->Prior();//чтобы не топтаться на месте
+      }
+
+    Flag= true;
+
+
+//-----Убрала комментарии--------
+
+
+
+# 8
 void BeKlapan2Slave::DefState()  
 {  
     if(FLastCommand!= NO_VALUE)  
@@ -77,22 +122,8 @@ void BeKlapan2Slave::DefState()
 } 
 // Изменила имена переменной-состояния и имя функции, для большей ясности. Комментарий не нужен уже  
 
-# 5 
-struct  SDevice
-{
-    uint            devID; 		//идентиф устройства
-    uint            devSignalCount;	//число сигн
-    int             devState;		//Состояние
-    PExecuteFunc    *ExecuteFunc;	//Указ на ф-цию  выполнения команд
-    POnChange       *OnChangeFunc;	//Указ на ф-цию обработки изм сигнала
-    PResetFunc      *OnResetFunc;       //Указатель на функцию сброса устройства
-    uint             devTaskId;		//номер задачи обраб устр-во
-    uint            *lisDevtSignals;	// массив сигналов
-    void            *devParam;	//Структура с таймаутами и переменными
-};
-// Здесь считаю комментарии уместно для ясности в стрктуре описания свойств и функций устройства 
 
-# 6
+# 9
 void ConfirmOnChange (DEVICE_DD *confirm_dd, int sid, int value, int valflag)  
 {  
     switch (sid)  
@@ -145,89 +176,66 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int typeSignal, int value, int valf
 }  
 // Изменила названия переменных и функций - комментарии убрала  
 
-# 7
-//Вернуть объект типа BeClass с заданным именем - строкой  
-BeClass*	BeObjList::GetByStringID  (char* strid)  
+# 10  
+BeClass::BeClass()  
 {  
+   &ensp; &ensp; if (FReestr == 0)   //Первый раз созд Sytem и в нем - реестр, второй  раз- Reestr не созд   
+    &ensp; &ensp;{  
+        &ensp; &ensp;&ensp; &ensp;FReestr = this;      
+        &ensp; &ensp;&ensp; &ensp;FReestr = new BeReestr();  
+    &ensp; &ensp;}    
+    &ensp; &ensp;FID = NO_VALUE;  
+}  
+//--------------------    
+bool REESRT_NO_EXIST = {return (FReestr == 0)};  
+  
+if (REESTR_NO_EXIST)      
+    &ensp; &ensp;{   
+        &ensp; &ensp;&ensp; &ensp;FReestr = this;       
+       &ensp; &ensp;&ensp; &ensp; FReestr = new BeReestr();  
+   &ensp; &ensp; }  
+    &ensp; &ensp;FID = NO_VALUE;  
+}  
+// Заменить 0 на переменную - станет более понятно    
+
+
+# 12
+//Вернуть объект типа BeClass с заданным именем - строкой    
+BeClass*	BeObjList::GetByStringID  (char* strid)  
+{   
     BeClass	*node_ptr = 0;  
     if ((strid == 0) || (*strid == 0))  
         return (0);  
-
-    for (int i = 0;  i < FCount;  i++)
-    {
-    	node_ptr = (BeClass*)GetItem(i); // Вытащить сигнал, если его номер не больше общего числа сигналов
-
-        if (node_ptr != 0)
-        {
-            if (node_ptr->FStrID != 0)
-                if (strcmp (node_ptr->FStrID, strid) == 0)//Если  совпад назв сигнала в конфиге и внутри объекта
-            		break;     //вернуть адрес объ если совпад названия иначе  вернуть 0
-            node_ptr = 0;
-        }
-    }
-    return (node_ptr);
-} 
-//------------------------
-
-BeClass*	BeObjList::GetObjectByName  (char* curObjectName)  
+    for (int i = 0;  i < FCount;  i++)  
+    {  
+    	node_ptr = (BeClass*)GetItem(i); // Вытащить сигнал, если его номер не больше общего числа сигналов  
+        if (node_ptr != 0)  
+        {  
+            if (node_ptr->FStrID != 0)  
+                if (strcmp (node_ptr->FStrID, strid) == 0) //Если  совпад назв сигнала в конфиге и внутри объекта  
+            		break;     // вернуть адрес объ если совпад названия иначе  вернуть 0  
+            node_ptr = 0;  
+        }  
+    }  
+    return (node_ptr);  
+}   
+//------------------------    
+BeClass*	BeObjList::GetObjectByName  (char* curObjectName)    
 {  
     BeClass	*curObject = 0;  
-    if ((curObjectName == NO_NAME) || (*curObjectName == 0))  
+    if ((curObjectName == NO_NAME) || (*curObjectName == 0))   
         return (0);  
-
-    for (int i = 0;  i < FChildCount;  FChildCount ++)
-    {
-    	curObject = (BeObjList*)GetItem (i); 
-
-        if (curObject != 0)
-        {
-            if (curObject->FName != 0 && (strcmp (curObject->FName, objectName)) == 0)
-            	return (curObject);
-        }
-    }
-    return (0);
-}
-// Изменила код и необходимость в коментариях отпала
-
-# 8
-int    GetTimerBit()
-{
-    for (int i = 0;  i <= MAX_TIM_BITS_COUNT;  i++)
-    {
-        if (TimBitToTask[i] == 0)		
-            return (i + TIM_BIT_BASE);		//IM_BIT_BASE - сдвиг для вычисления сигнала таймера в списке сигналов
-    }
-
-    SetError();		//Это если сигнал больше чем MAX_TIM_BITS_COUNT
-    return (-1);
-} 
-// Здесь комментарии поясняют принцип поиска сигнала в списке 
-
-# 9
-#define	ZUBCOUNT   	6	 // число зубов вала турбокомпрессора
-#define TICK_PER_SECOND          (39062.5) 	//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec
-#define TICK_PER_SECOND_INT      (39063)   		// округление для целого 
-#define TIME_CONVERTER          (TICK_PER_SECOND*60)	//  число тиков в минуту 
-#define PART_OF_SEC             (10)                    // т.е. секунду делим на ...  = ~100 мСек
-#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT / PART_OF_SEC) // число тиков в сек
-#define ERROR_FOR_OTKAZ_COUNT   (5)				    // число отказов до выставление ошибки
-#define IZM_TIME                10      //Время замера оборотов = ~100 мСек
-
-// Здесь комментарии - пояснения физических констант
-
-# 10
-    if(Flag)// если мы продолжаем поиск
-      {
-       CurrentChild->ADOQueryEvent->Prior();
-       ind_fld = !poiskmarker; //если начинали поиск по маркеру, то и продолжим по маркеру и наооборот
-      }
-    else
-      {
-       poiskmarker = !ind_fld;
-       if(ind_fld == 0)
-         CurrentChild->ADOQueryEvent->Prior();//чтобы не топтаться на месте
-      }
-
-    Flag= true;
+    for (int i = 0;  i < FChildCount;  FChildCount ++)  
+    {  
+    	curObject = (BeObjList*)GetItem (i);   
+        if (curObject != 0)  
+        {  
+            if (curObject->FName != 0 && (strcmp (curObject->FName, objectName)) == 0)  
+            	return (curObject);  
+        }  
+    }  
+    return (0);  
+}  
+// Изменила код и необходимость в коментариях отпала  
 
 
