@@ -75,6 +75,16 @@ int    GetTimerBit()
 // Здесь комментарии - пояснения физических констант  
 
 # 6
+struct SThreadEvent
+{
+    unsigned long FEventParam;      //ВНИМАНИЕ!!!  Важно и для Линукс и для Винды
+
+    union
+    {
+        void*           FPointer;
+        unsigned int    FEventField;
+    };
+};
 
 
 
