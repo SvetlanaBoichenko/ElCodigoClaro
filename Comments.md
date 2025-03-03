@@ -1,4 +1,4 @@
-// --Уместнв комментарии
+---------комментарии оставила -------------------------  
 
 # 1
 #ifdef __WIN32__  
@@ -87,11 +87,11 @@ struct SThreadEvent
 
 # 7
 TCursor Save_Cursor = Screen->Cursor;  
-Screen->Cursor = crHourGlass; 		// изменяем вид курсора  	
-SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи  
-// Здесь бы также оставила комментарий, он поясняет функции С++ Builder    
+Screen->Cursor = crHourGlass; 		// изменяем вид курсора    	
+SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи    
+// Здесь бы также оставила комментарий, он поясняет функции С++ Builder      
 
-------------------------------------------------
+-----------------Комментарии убираю-------------------------------
 
 # 8
 void BeKlapan2Slave::DefState()  
