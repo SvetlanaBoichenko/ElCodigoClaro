@@ -66,11 +66,11 @@ int    GetTimerBit()
 #define	ZUBCOUNT   	6	 &ensp; &ensp; // число зубов вала турбокомпрессора   
 #define TICK_PER_SECOND          (39062.5) &ensp; &ensp;//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
 #define TICK_PER_SECOND_INT      (39063)  &ensp; &ensp; // округление для целого  
-#define TIME_CONVERTER          (TICK_PER_SECOND*60) &ensp; &ensp//  число тиков в минуту  
+#define TIME_CONVERTER          (TICK_PER_SECOND*60) &ensp; &ensp; //  число тиков в минуту  
 #define PART_OF_SEC             (10)    &ensp; &ensp;   // т.е. секунду делим на ...  = ~100 мСек  
-#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT/PART_OF_SEC) &ensp; &ensp;// число тиков в сек  
+#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT/PART_OF_SEC) &ensp; &ensp; // число тиков в сек  
 #define ERROR_FOR_OTKAZ_COUNT   (5) &ensp; &ensp; // число отказов до выставление ошибки   
-#define IZM_TIME                10  &ensp; &ensp;//Время замера оборотов = ~100 мСек  
+#define IZM_TIME                10  &ensp; &ensp ;//Время замера оборотов = ~100 мСек  
 // Здесь комментарии - пояснения физических констант  
 
 # 6
