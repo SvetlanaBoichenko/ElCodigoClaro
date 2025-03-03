@@ -64,13 +64,13 @@ int    GetTimerBit()
 
 # 5
 #define	ZUBCOUNT   	6	 &ensp; &ensp; // число зубов вала турбокомпрессора   
-#define TICK_PER_SECOND          (39062.5) 	//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
-#define TICK_PER_SECOND_INT      (39063)   		// округление для целого  
-#define TIME_CONVERTER          (TICK_PER_SECOND*60)	//  число тиков в минуту  
-#define PART_OF_SEC             (10)                    // т.е. секунду делим на ...  = ~100 мСек  
-#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT / PART_OF_SEC) // число тиков в сек  
-#define ERROR_FOR_OTKAZ_COUNT   (5)				    // число отказов до выставление ошибки   
-#define IZM_TIME                10      //Время замера оборотов = ~100 мСек  
+#define TICK_PER_SECOND          (39062.5) &ensp; &ensp;//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
+#define TICK_PER_SECOND_INT      (39063)  &ensp; &ensp; // округление для целого  
+#define TIME_CONVERTER          (TICK_PER_SECOND*60) &ensp; &ensp//  число тиков в минуту  
+#define PART_OF_SEC             (10)    &ensp; &ensp;   // т.е. секунду делим на ...  = ~100 мСек  
+#define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT/PART_OF_SEC) &ensp; &ensp;// число тиков в сек  
+#define ERROR_FOR_OTKAZ_COUNT   (5) &ensp; &ensp; // число отказов до выставление ошибки   
+#define IZM_TIME                10  &ensp; &ensp;//Время замера оборотов = ~100 мСек  
 // Здесь комментарии - пояснения физических констант  
 
 # 6
@@ -87,7 +87,8 @@ struct SThreadEvent
 
 # 7
 TCursor Save_Cursor = Screen->Cursor;   
-Screen->Cursor = crHourGlass; // изменяем вид курсора       	
+Screen->Cursor = crHourGlass; // изменяем вид курсора  
+
 SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи      
 // Здесь бы также оставила комментарий, он поясняет функции С++ Builder        
 -----------------Комментарии убираю-------------------------------
@@ -97,7 +98,7 @@ void BeKlapan2Slave::DefState()
 {  
     if(FLastCommand!= NO_VALUE)  
     {  
-        FValue = FLastCommand;  //Состояние - Предыдущ поданная команда, тк концевого не видно       	
+        FValue = FLastCommand;  //Состояние - Предыдущ поданная команда,тк концевого не видно       	
      }  
     else  
        BeKlapanSlvDevice::DefState();  
@@ -172,7 +173,7 @@ void ConfirmOnChange (DEVICE_DD *confirm_dd, int typeSignal, int value, int valf
 # 10  
 BeClass::BeClass()  
 {  
-   &ensp; &ensp; if (FReestr == 0)   //Первый раз созд Sytem и в нем - реестр, второй  раз- Reestr не созд   
+   &ensp; &ensp; if (FReestr == 0)   //Первый раз созд Sytem и в нем -реестр, второй раз- Reestr не созд   
     &ensp; &ensp;{  
         &ensp; &ensp;&ensp; &ensp;FReestr = this;      
         &ensp; &ensp;&ensp; &ensp;FReestr = new BeReestr();  
