@@ -37,14 +37,14 @@ bool    BeBaseClass::Init()
 # 3 
 struct  SDevice  
 {  
-    uint            devID; 		//идентиф устройства  
-    uint            devSignalCount;	//число сигн  
-    int             devState;		//Состояние  
-    PExecuteFunc    *ExecuteFunc;	//Указ на ф-цию  выполнения команд  
-    POnChange       *OnChangeFunc;	//Указ на ф-цию обработки изм сигнала  
-    PResetFunc      *OnResetFunc;       //Указатель на функцию сброса устройства  
-    uint             devTaskId;		//номер задачи обраб устр-во  
-    uint            *lisDevtSignals;	// массив сигналов  
+    uint            devID; 		&ensp; &ensp; &ensp; &ensp; //идентиф устройства  
+    uint            devSignalCount;	&ensp; &ensp; &ensp; &ensp; //число сигн  
+    int             devState;		&ensp; &ensp; &ensp; &ensp; //Состояние  
+    PExecuteFunc    *ExecuteFunc;	&ensp; &ensp; &ensp; &ensp; //Указ на ф-цию  выполнения команд  
+    POnChange       *OnChangeFunc;	&ensp; &ensp; &ensp; &ensp; //Указ на ф-цию обработки изм сигнала  
+    PResetFunc      *OnResetFunc;       &ensp; &ensp; &ensp; &ensp; //Указатель на функцию сброса устройства  
+    uint             devTaskId;		&ensp; &ensp; &ensp; &ensp; //номер задачи обраб устр-во  
+    uint            *lisDevtSignals;	&ensp; &ensp; &ensp; &ensp; // массив сигналов  
     void            *devParam;	//Структура с таймаутами и переменными  
 };  
 // Здесь считаю комментарии уместно для ясности в стрктуре описания свойств и функций устройства   
@@ -63,34 +63,33 @@ int    GetTimerBit()
 // Здесь комментарии поясняют принцип поиска сигнала в списке   
 
 # 5
-#define	ZUBCOUNT   	6	 // число зубов вала турбокомпрессора  
+#define	ZUBCOUNT   	6	 &ensp; &ensp; // число зубов вала турбокомпрессора   
 #define TICK_PER_SECOND          (39062.5) 	//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
 #define TICK_PER_SECOND_INT      (39063)   		// округление для целого  
 #define TIME_CONVERTER          (TICK_PER_SECOND*60)	//  число тиков в минуту  
 #define PART_OF_SEC             (10)                    // т.е. секунду делим на ...  = ~100 мСек  
 #define TICKS_PER_PERIOD        (TICK_PER_SECOND_INT / PART_OF_SEC) // число тиков в сек  
-#define ERROR_FOR_OTKAZ_COUNT   (5)				    // число отказов до выставление ошибки  
+#define ERROR_FOR_OTKAZ_COUNT   (5)				    // число отказов до выставление ошибки   
 #define IZM_TIME                10      //Время замера оборотов = ~100 мСек  
 // Здесь комментарии - пояснения физических констант  
 
 # 6
 struct SThreadEvent  
 {  
-    unsigned long FEventParam;    //ВНИМАНИЕ!!!  Важно и для Линукс и для Винды
-    union  
-    {  
-        void*           FPointer;  
-        unsigned int    FEventField;  
-    };  
+    &ensp; &ensp; unsigned long FEventParam;    //ВНИМАНИЕ!!!  Важно и для Линукс и для Винды
+   &ensp; &ensp;  union  
+    &ensp; &ensp; {  
+     &ensp; &ensp;&ensp; &ensp;  void*           FPointer;  
+     &ensp; &ensp;&ensp; &ensp;  unsigned int    FEventField;  
+    &ensp; &ensp; };  
 };  
 // Замечание по типу переменной считаю уместной
 
 # 7
-TCursor Save_Cursor = Screen->Cursor;  
-Screen->Cursor = crHourGlass; 		// изменяем вид курсора    	
-SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи    
-// Здесь бы также оставила комментарий, он поясняет функции С++ Builder      
-
+TCursor Save_Cursor = Screen->Cursor;   
+Screen->Cursor = crHourGlass; // изменяем вид курсора       	
+SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи      
+// Здесь бы также оставила комментарий, он поясняет функции С++ Builder        
 -----------------Комментарии убираю-------------------------------
 
 # 8
