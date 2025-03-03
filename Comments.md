@@ -62,7 +62,6 @@ int    GetTimerBit()
 }   
 // Здесь комментарии поясняют принцип поиска сигнала в списке   
 
-
 # 5
 #define	ZUBCOUNT   	6	 // число зубов вала турбокомпрессора  
 #define TICK_PER_SECOND          (39062.5) 	//расчет 20000000/512!! время тика = OneTick = 1./39062.5 Sec  
@@ -75,39 +74,24 @@ int    GetTimerBit()
 // Здесь комментарии - пояснения физических констант  
 
 # 6
-struct SThreadEvent
-{
-    unsigned long FEventParam;      //ВНИМАНИЕ!!!  Важно и для Линукс и для Винды
-
-    union
-    {
-        void*           FPointer;
-        unsigned int    FEventField;
-    };
-};
-
-
-
+struct SThreadEvent  
+{  
+    unsigned long FEventParam;    //ВНИМАНИЕ!!!  Важно и для Линукс и для Винды
+    union  
+    {  
+        void*           FPointer;  
+        unsigned int    FEventField;  
+    };  
+};  
+// Замечание по типу переменной считаю уместной
 
 # 7
-    if(Flag)// если мы продолжаем поиск
-      {
-       CurrentChild->ADOQueryEvent->Prior();
-       ind_fld = !poiskmarker; //если начинали поиск по маркеру, то и продолжим по маркеру и наооборот
-      }
-    else
-      {
-       poiskmarker = !ind_fld;
-       if(ind_fld == 0)
-         CurrentChild->ADOQueryEvent->Prior();//чтобы не топтаться на месте
-      }
+TCursor Save_Cursor = Screen->Cursor;  
+Screen->Cursor = crHourGlass; 		// изменяем вид курсора  	
+SavePlace = MainForm->FCurrentGrid->Row;  //Закладка на текущей записи  
+// Здесь бы также оставила комментарий, он поясняет функции С++ Builder    
 
-    Flag= true;
-
-
-//-----Убрала комментарии--------
-
-
+------------------------------------------------
 
 # 8
 void BeKlapan2Slave::DefState()  
@@ -209,12 +193,12 @@ if (REESTR_NO_EXIST)
 // Заменить 0 на переменную - станет более понятно    
 
 
-# 12
-//Вернуть объект типа BeClass с заданным именем - строкой    
-BeClass*	BeObjList::GetByStringID  (char* strid)  
-{   
-    BeClass	*node_ptr = 0;  
-    if ((strid == 0) || (*strid == 0))  
+# 11
+//Вернуть объект типа BeClass с заданным именем - строкой     
+BeClass* BeObjList::GetByStringID  (char* strid){    
+
+    BeClass *node_ptr = 0;    
+    if ((strid == 0) || (*strid == 0))    
         return (0);  
     for (int i = 0;  i < FCount;  i++)  
     {  
@@ -233,7 +217,8 @@ BeClass*	BeObjList::GetByStringID  (char* strid)
 BeClass*	BeObjList::GetObjectByName  (char* curObjectName)    
 {  
     BeClass	*curObject = 0;  
-    if ((curObjectName == NO_NAME) || (*curObjectName == 0))   
+    if ((curObjectName == NO_NAME) || (*curObjectName == 0))  
+    
         return (0);  
     for (int i = 0;  i < FChildCount;  FChildCount ++)  
     {  
@@ -247,5 +232,20 @@ BeClass*	BeObjList::GetObjectByName  (char* curObjectName)
     return (0);  
 }  
 // Изменила код и необходимость в коментариях отпала  
+
+# 12
+SetBit (SysControlDD.Signals[SYSCONTROL_NET_EXTRASTOP_SIGNAL], ON);    	
+SetBit (SysControlDD.Signals[SYSCONTROL_NET_STATUSSTOP_SIGNAL], ON);   
+ExtraStopFunction();  
+Delay(2000); //Чтоб успеть поймать по сети аварию-если она быстро прошла  
+//-----------------------------------------------  
+static int TimeToCatchAlarmMs = 2000;  
+SetBit (SysControlDD.Signals[SYSCONTROL_NET_EXTRASTOP_SIGNAL], ON);    	
+SetBit (SysControlDD.Signals[SYSCONTROL_NET_STATUSSTOP_SIGNAL], ON);   
+ExtraStopFunction();  
+Delay(TimeToCatchAlarmMs);   
+//Можно убрать комментарий или перенести его в месть объявления переменной TimeToCatchAlarmMs
+
+
 
 
