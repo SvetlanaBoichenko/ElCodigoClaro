@@ -118,15 +118,13 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  &ensp; &ensp;   kran2_Param = kran2_dd->DevParam;     
  &ensp; &ensp;   switch (sid)		//  Здесь только концевые-остальные обрабатываем в Kran.c   
  &ensp; &ensp;   {   
-  &ensp; &ensp;    case KRAN_OPEN_SENSOR_SIGNAL:   
-   &ensp; &ensp;    if (value == ON)   
- & &ensp; &ensp; &ensp; &ensp;ensp; &ensp; &ensp; {   
-	    SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка ON в МГП - кажд крана отдельно     
- &ensp; &ensp;	        if(ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2] )== ON)  		
- &ensp; &ensp;	        {	 
-    &ensp; &ensp; &ensp; &ensp;   if (kran2_Param->FOpenOverTime != 0) {   
-     &ensp; &ensp; &ensp; &ensp;    kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME; // Заряжаем таймаут на дожим крана   
-        &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param->FOpenOverTime);   
+ &ensp; &ensp;    case KRAN_OPEN_SENSOR_SIGNAL:   
+ &ensp; &ensp;    if (value == ON) {     
+ &ensp; &ensp;&ensp;&ensp; SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка ON в МГП-кажд кран отдельно     
+ &ensp; &ensp;&ensp;&ensp; if(ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2] )== ON) {  	 
+&ensp; &ensp; &ensp; &ensp;&ensp; &ensp;   if (kran2_Param->FOpenOverTime != 0) {    
+&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME; // Заряжаем таймаут на дожим крана       
+ &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param->FOpenOverTime);     
        &ensp; &ensp;      }   
        &ensp; &ensp;     else  
          &ensp; &ensp;   KranOnReset(kran2_dd);  	        
