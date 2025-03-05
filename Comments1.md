@@ -10,7 +10,7 @@ bool    ALimit::OnAfterLoad()
 //1. Информативное сообщение Пояснение к функции  
 
 # 2
-    ..
+..
     if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))
     {
         eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";
@@ -101,9 +101,47 @@ ATimerManager::ATimerManager()
     FProcessOptions.Set(PROCESS_IS_KERNEL);  
     FTimerIndex = FAddressIndex;      //Заполняем статическое поле для адресации к таймеру  
 }  
+// 1. Информативные комментарии
+
 
 # 11
+uword ASC_uwGetData (void)  
+{  
+    S0RIR = 0;             // reset receive interrupt request flag  
+    return(S0RBUF);        // return receive buffer register  
+}   
+// 3. Прояснение при использовнии системной функции микроконтроллера
 
+# 12
+void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
+{
+   struct SKran2Param  *kran2_Param; 
+   kran2_Param = kran2_dd->DevParam;
+
+   switch (sid)		// Здесь только концевые-остальные обрабатываем в Kran.c
+   {
+     case KRAN_OPEN_SENSOR_SIGNAL:
+      if (value == ON)
+	  {
+	    SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка значения ON для МГП - каждого крана в отдельности
+	        if(ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2])== ON)		
+	        {	
+            	    if (kran2_Param->FOpenOverTime != 0) {
+                	kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME;   // Заряжаем таймаут на дожим крана
+                	SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param->FOpenOverTime);
+            	     }
+            	     else
+                	KranOnReset(kran2_dd);	      
+ 			}
+          }
+	  else		
+	    SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF аналогично значению ON		
+	 break;
+..
+..
+}
+
+// 1. Пояснения к алгоритму обработки сигналов крана
 
 
 
