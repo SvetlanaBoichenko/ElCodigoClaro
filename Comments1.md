@@ -41,7 +41,7 @@ ADescriptor*    GetClassDescriptor (AString class_name, FLAG connect_type)
       &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;       ret = 0;  
     &ensp; &ensp; }  
     return (ret);  
-} 
+}    
 //6. Заметка на будущее
 
 # 5
