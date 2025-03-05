@@ -10,13 +10,13 @@ bool    ALimit::OnAfterLoad()
 //1. Информативное сообщение Пояснение к функции  
 
 # 2
-..  
+..   
     if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))  
     {  
       &ensp; &ensp; eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";  
       &ensp; &ensp;   eventvalue = ev->FValue;            // ToDo Надо заменить на текст из списка в следующей версии  
-       &ensp; &ensp;  out.AddStringAtPos (eventvalue, 55);  
-    }  
+       &ensp; &ensp;  out.AddStringAtPos (eventvalue, 55);   
+    }   
 //6. Заметка на будущее  
 
 # 3
@@ -24,8 +24,8 @@ AClass::AClass (AString name, AString comment)
      &ensp; &ensp;  : ANode (name, comment),  
      &ensp; &ensp;    AList (1)  
 {  
-    &ensp; &ensp; ClrStructOptions (COMPONENT_NO_OWNER);    // На этом много завязано - не менять! может все слететь  
-}  
+    &ensp; &ensp; ClrStructOptions (COMPONENT_NO_OWNER);    // На этом много завязано - не менять! может все слететь   
+}   
 // 4. Предупреждение о последствиях  
 
 # 4
@@ -121,20 +121,20 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  &ensp; &ensp;   {   
   &ensp; &ensp;    case KRAN_OPEN_SENSOR_SIGNAL:   
    &ensp; &ensp;    if (value == ON)   
- & &ensp; &ensp; &ensp; &ensp;ensp; &ensp; &ensp; {  
-	    SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка значения ON для &ensp; &ensp; МГП - каждого крана в отдельности   
- &ensp; &ensp;	        if(ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2])== ON)  		
+ & &ensp; &ensp; &ensp; &ensp;ensp; &ensp; &ensp; {   
+	    SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка ON в МГП - кажд крана отдельно     
+ &ensp; &ensp;	        if(ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2] )== ON)  		
  &ensp; &ensp;	        {	 
-    &ensp; &ensp; &ensp; &ensp;         	    if (kran2_Param->FOpenOverTime != 0) {   
-     &ensp; &ensp; &ensp; &ensp;            	kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME; // Заряжаем таймаут на дожим крана   
-        &ensp; &ensp; &ensp; &ensp;         	SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param->FOpenOverTime);   
-       &ensp; &ensp;      	     }  
-       &ensp; &ensp;      	     else  
-         &ensp; &ensp;        	KranOnReset(kran2_dd);	        
- 	 &ensp; &ensp;		}   
+    &ensp; &ensp; &ensp; &ensp;   if (kran2_Param->FOpenOverTime != 0) {   
+     &ensp; &ensp; &ensp; &ensp;    kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME; // Заряжаем таймаут на дожим крана   
+        &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param->FOpenOverTime);   
+       &ensp; &ensp;      }   
+       &ensp; &ensp;     else  
+         &ensp; &ensp;   KranOnReset(kran2_dd);  	        
+ 	 &ensp; &ensp;   }   
           &ensp; &ensp; }   
-	 &ensp; &ensp;  else	 	  
-	  &ensp; &ensp; &ensp; &ensp;   SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF аналогично значению ON   		
+	 &ensp; &ensp;  else  	 	  
+	  &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF аналогично значению ON    		
 	 &ensp; &ensp; break;   
 ..  
 ..  
