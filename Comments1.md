@@ -1,6 +1,6 @@
 # 1
-bool    ALimit::OnAfterLoad()      //Необходимо проверить полноту заполнения свойств - а вдруг забыли...
-{
+bool    ALimit::OnAfterLoad()      // Необходимо проверить полноту заполнения свойств - а вдруг забыли  
+{  
     AObject  *par = (AObject*)GetParam();
   
     if (par != 0)
