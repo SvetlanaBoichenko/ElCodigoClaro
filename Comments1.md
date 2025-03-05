@@ -123,9 +123,11 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  {     
  &ensp; &ensp;&ensp;&ensp; SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка ON в МГП-кажд кран отдельно      
  &ensp; &ensp;&ensp;&ensp; if (ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2] )== ON)  
- &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; {  	 
+ &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; {  
+ 
 &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;if (kran2_Param->FOpenOverTime != 0)   
-&ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp; {  
+&ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp; {   
+
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME; // Заряжаем таймаут на дожим крана       
  &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_TIMEOUT_SIGNAL], kran2_Param-> FOpenOverTime);     
        &ensp; &ensp;      }   
@@ -134,7 +136,7 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  	 &ensp; &ensp;   }   
           &ensp; &ensp; }   
 	 &ensp; &ensp;  else  	 	  
-	  &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF аналогично значению ON    		
+	  &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF как и ON      		
 	 &ensp; &ensp; break;   
 ..  
 ..  
