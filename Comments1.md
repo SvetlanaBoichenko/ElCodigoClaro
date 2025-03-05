@@ -136,7 +136,7 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  	 &ensp; &ensp;   }   
           &ensp; &ensp; }   
 	 &ensp; &ensp;  else  	 	  
-	  &ensp; &ensp; &ensp; &ensp;  SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF как и ON      		
+	  &ensp; &ensp; &ensp; &ensp;SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF); // Прямая установка значения OFF как и ON      		
 	 &ensp; &ensp; break;   
 ..  
 ..  
