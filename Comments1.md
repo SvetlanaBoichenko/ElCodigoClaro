@@ -10,23 +10,23 @@ bool    ALimit::OnAfterLoad()
 //1. Информативное сообщение Пояснение к функции  
 
 # 2
-..
-    if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))
-    {
-        eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";
-        eventvalue = ev->FValue;            //todo Надо заменить на текст из списка в следующей версии
-        out.AddStringAtPos (eventvalue, 55);
-    }
-//6. Заметка на будущее
+..  
+    if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))  
+    {  
+        eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";  
+        eventvalue = ev->FValue;            // ToDo Надо заменить на текст из списка в следующей версии  
+        out.AddStringAtPos (eventvalue, 55);  
+    }  
+//6. Заметка на будущее  
 
 # 3
-AClass::AClass (AString name, AString comment)
-      : ANode (name, comment),
-        AList (1)
-{
-    ClrStructOptions (COMPONENT_NO_OWNER);    //На этом много завязано - не менять! может все слететь
-}
-// 4. Предупреждение о последствиях
+AClass::AClass (AString name, AString comment)  
+      : ANode (name, comment),  
+        AList (1)  
+{  
+    ClrStructOptions (COMPONENT_NO_OWNER);    // На этом много завязано - не менять! может все слететь  
+}  
+// 4. Предупреждение о последствиях  
 
 # 4
 // ToDo   Нужно будет сделать доп. проверку по connect.  
@@ -59,11 +59,11 @@ unsigned char* _mbsspnp (unsigned char *s1, unsigned char *s2)
 
 # 6  
 #if !defined (__WIN32__)  
-static const ATIME   BASE_INTERVAL_VALUE = 10;  //Больше нельзя - линукс дурит, обрезает MAXLONG  
-// 3. Прояснение при использовнии системной функции для разных ОС 
+static const ATIME   BASE_INTERVAL_VALUE = 10;  // Больше нельзя - линукс дурит, обрезает MAXLONG   
+// 3. Прояснение при использовнии системной функции для разных ОС  
 
 # 7
-AComponent*	AComponent::GetChildByName (AString name)   //ToDo нужна проверка на пустое имя   
+AComponent*	AComponent::GetChildByName (AString name)   // ToDo нужна проверка на пустое имя   
 {   
     AComponent* node = 0;  
     int         child_count = ChildCount();   
