@@ -45,7 +45,7 @@ ADescriptor*    GetClassDescriptor (AString class_name, FLAG connect_type)
 //----- 6. Заметка на будущее
 
 # 5
-#if !defined (__WIN32__) // This function defined only in Windows!!!    
+#if !defined (__WIN32__)  &ensp;  //  This function defined only in Windows!!!    
 unsigned char* _mbsspnp (unsigned char *s1, unsigned char *s2)   
 {   
  &ensp; &ensp;	bool	f;   
@@ -85,11 +85,11 @@ class   AObject : public AClass, public APropertyClass, public AStateClass, publ
 {  
 protected:  
   &ensp; &ensp;   static  long    FTimerIndex;  
-  &ensp; &ensp;   AClass*     FListRegistrator;  &ensp; //Для хранения списков команд и пр.  
+  &ensp; &ensp;   AClass*     FListRegistrator;  &ensp;  // Для хранения списков команд и пр.  
   &ensp; &ensp;   long        FAddressIndex;  
 ..  
 ..  
-  &ensp; &ensp;   virtual void        RegistrateInternalList (AClass *list);   //Для регистрации спискрв типа состояний и команд  
+  &ensp; &ensp;   virtual void        RegistrateInternalList (AClass *list);   // Для регистрации спискрв типа состояний и команд  
 //------ 1. Информативные комментарии
 
 # 10
@@ -121,11 +121,11 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  &ensp; &ensp;    case KRAN_OPEN_SENSOR_SIGNAL:   
  &ensp; &ensp;    if (value == ON) 
  {     
- &ensp; &ensp;&ensp;&ensp; SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  // Прямая установка ON в МГП-кажд кран отдельно      
+ &ensp; &ensp;&ensp;&ensp; SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL], ON);  &ensp;  // Прямая установка ON в МГП-кажд кран отдельно      
  &ensp; &ensp;&ensp;&ensp; if (ValueOfBit (kran2_dd->Signals[KRAN_OPEN_SENSOR_SIGNAL_2] )== ON)  
  &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; {  
  
-&ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;if (kran2_Param->FOpenOverTime != 0)   
+&ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp; if (kran2_Param->FOpenOverTime != 0)   
 &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp; {   
 
 &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;  kran2_Param->FWaitTimeOut = KRAN_OPEN_OVER_TIME;  &ensp; // Заряжаем таймаут на дожим крана       
@@ -136,7 +136,8 @@ void Kran2OnSignal (DEVICE_DD *kran2_dd, int sid, int value, int valflag)
  	 &ensp; &ensp;   }   
           &ensp; &ensp; }   
 	 &ensp; &ensp;  else  	 	  
-	  &ensp; &ensp; &ensp; &ensp;SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF);  &ensp; // Прямая установка значения OFF как и ON      		
+	  &ensp; &ensp; &ensp; &ensp;SetBit (kran2_dd->Signals[KRAN_NET_OPEN_SENSOR_SIGNAL],  OFF);  &ensp; 
+  // Прямая установка значения OFF как и ON      		
 	 &ensp; &ensp; break;   
 ..  
 ..  
