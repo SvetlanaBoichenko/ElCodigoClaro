@@ -32,7 +32,7 @@ AClass::AClass (AString name, AString comment)
 // ToDo   Нужно будет сделать доп. проверку по connect.  
 ADescriptor*    GetClassDescriptor (AString class_name, FLAG connect_type)  
 {  
-    &ensp; &ensp; ADescriptor *ret = (ADescriptor*)LPClassDescriptorList->GetChildByName (class_name);  
+    &ensp; &ensp; ADescriptor *ret = (ADescriptor*) LPClassDescriptorList->GetChildByName (class_name);  
     &ensp; &ensp; if (ret != 0)  
     &ensp; &ensp; {  
      &ensp; &ensp; &ensp; &ensp;    FLAG    id = ret->GetID();  
