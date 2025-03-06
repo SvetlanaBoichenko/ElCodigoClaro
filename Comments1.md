@@ -7,7 +7,7 @@ bool    ALimit::OnAfterLoad()
      &ensp; &ensp; &ensp; &ensp;    return = true;  
     &ensp; &ensp; return (false);  
 }   
-//1. Информативное сообщение Пояснение к функции  
+//----- 1. Информативное сообщение Пояснение к функции-----  
 
 # 2
 ..   
@@ -26,7 +26,7 @@ AClass::AClass (AString name, AString comment)
 {  
     &ensp; &ensp; ClrStructOptions (COMPONENT_NO_OWNER); &ensp; &ensp;  // На этом много завязано - не менять! может все слететь   
 }   
-// 4. Предупреждение о последствиях  
+// ----4. Предупреждение о последствиях --- 
 
 # 4
 // ToDo   Нужно будет сделать доп. проверку по connect.  
@@ -42,7 +42,7 @@ ADescriptor*    GetClassDescriptor (AString class_name, FLAG connect_type)
     &ensp; &ensp; }  
     return (ret);  
 }    
-//6. Заметка на будущее
+//----6. Заметка на будущее---
 
 # 5
 #if !defined (__WIN32__) // This function defined only in Windows!!!    
