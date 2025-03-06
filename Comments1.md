@@ -14,7 +14,7 @@ bool    ALimit::OnAfterLoad()
     if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))  
     {  
       &ensp; &ensp; eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";  
-      &ensp; &ensp;   eventvalue = ev->FValue;	&ensp; &ensp; &ensp; &ensp; &ensp; &ensp; // ToDo Надо заменить на текст из списка в следующей версии  
+      &ensp; &ensp;   eventvalue = ev->FValue;	&ensp; &ensp; &ensp; &ensp; // ToDo Надо заменить на текст из списка в следующей версии  
        &ensp; &ensp;  out.AddStringAtPos (eventvalue, 55);   
     }   
 //6. Заметка на будущее  
@@ -24,7 +24,7 @@ AClass::AClass (AString name, AString comment)
      &ensp; &ensp;  : ANode (name, comment),  
      &ensp; &ensp;    AList (1)  
 {  
-    &ensp; &ensp; ClrStructOptions (COMPONENT_NO_OWNER);    // На этом много завязано - не менять! может все слететь   
+    &ensp; &ensp; ClrStructOptions (COMPONENT_NO_OWNER); &ensp; &ensp;  // На этом много завязано - не менять! может все слететь   
 }   
 // 4. Предупреждение о последствиях  
 
