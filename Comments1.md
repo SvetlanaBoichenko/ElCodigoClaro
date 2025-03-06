@@ -14,7 +14,7 @@ bool    ALimit::OnAfterLoad()
     if (state.IsHave (PARAM_EVENT_MESSAGE | PARAM_EVENT_ERROR))  
     {  
       &ensp; &ensp; eventvalue = AString (ev->FEventValue).FloatFormat() +  " - ";  
-      &ensp; &ensp;   eventvalue = ev->FValue;            // ToDo Надо заменить на текст из списка в следующей версии  
+      &ensp; &ensp;   eventvalue = ev->FValue;	&ensp; &ensp&ensp; &ensp&ensp; &ensp// ToDo Надо заменить на текст из списка в следующей версии  
        &ensp; &ensp;  out.AddStringAtPos (eventvalue, 55);   
     }   
 //6. Заметка на будущее  
