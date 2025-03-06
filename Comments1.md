@@ -60,6 +60,7 @@ unsigned char* _mbsspnp (unsigned char *s1, unsigned char *s2)
 # 6  
 #if !defined (__WIN32__)  
 static const ATIME   BASE_INTERVAL_VALUE = 10;   &ensp; &ensp;// Больше нельзя - линукс дурит, обрезает MAXLONG   
+
 //------ 3. Прояснение при использовнии системной функции для разных ОС  
 
 # 7
