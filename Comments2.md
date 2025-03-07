@@ -90,21 +90,21 @@ void BeKranSlaveDevice::VerifyError()
          	FValue = KRAN_CLOSE;    //управляющих нет
    }
    //------------
- // Кран закрыт
-   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))
-   {
-  // Только управляющий закрытия равен 1 
-	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))
-           FValue = KRAN_CLOSING;
-
-// Управляющие сигналы  - оба равны 1
-         else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))
-        	FValue = KRAN_DAMAGED;
-
- //В любой другой суперпозиции сигналов
-	 else 		
-         	FValue = KRAN_CLOSE;   
-   }  
+ // Кран закрыт  
+   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))  
+   {  
+  // Только управляющий закрытия равен 1  
+	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))  
+           FValue = KRAN_CLOSING;  
+ 
+ // Управляющие сигналы  - оба равны 1  
+         else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))  
+        	FValue = KRAN_DAMAGED;  
+  
+  // В любой другой суперпозиции сигналов  
+	 else   		
+         	FValue = KRAN_CLOSE;     
+   }     
     
 //---- Бормотание  
 //---- Исправила комментарии и имена переменных для большей ясности  
