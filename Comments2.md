@@ -3,7 +3,7 @@
 void BeKranSlaveDevice::DefLampState()  
 {  
    switch(FValue)  
-    {
+    {   
 		case OPEN:
 
          	FIO_KRANSL_OPEN_LAMP->StopBlink();
