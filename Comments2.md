@@ -25,11 +25,13 @@ void BeKranSlaveDevice::DefLampState()
     //Закладка на текущей записи
     SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();
 
-
-   TMDIChild* currentWindow = 0; 
-    ...
-    TBookmark saveRecordPlace;
-    saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();  
+  //-------------------  
+  
+   TMDIChild* currentWindow = 0;   
+    ...  
+    TBookmark saveRecordPlace;  
+    saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();   
+    
 //--- 12. Не используйте комментарии там, где можно использовать функцию или переменную  
 //--- Изменила имя функции и переменной на более понятные
 
