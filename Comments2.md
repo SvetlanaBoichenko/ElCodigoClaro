@@ -91,10 +91,10 @@ void BeKranSlaveDevice::VerifyError()
    }
    //------------
  // Кран закрыт  
-   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))  
-   {  
-  // Только управляющий закрытия равен 1  
-	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))  
+   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))    
+   {   
+  // Только управляющий закрытия равен 1   
+	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
            FValue = KRAN_CLOSING;  
  
  // Управляющие сигналы  - оба равны 1  
@@ -110,4 +110,18 @@ void BeKranSlaveDevice::VerifyError()
 //---- Исправила комментарии и имена переменных для большей ясности  
 
 # 6
+if (command == CLOSE)  
+    {        
+        FIO_KLAPAN_CONTROL_CLOSE->SetValue(ON);  
+        FIO_KLAPAN_CONTROL_OPEN->SetValue(OFF);  
+                     //Фиксируектс¤ только OPEN & CLOSE  
+     }  
+    if (command == OPEN)  
+    {
+        FIO_KLAPAN_CONTROL_CLOSE->SetValue(OFF);  
+        FIO_KLAPAN_CONTROL_OPEN->SetValue(ON);  
+    }  
+//---- Шум  
+// Других команд здесь и нет. Убрала комментарий  
 
+# 7
