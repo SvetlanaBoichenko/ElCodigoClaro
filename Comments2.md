@@ -44,8 +44,9 @@ void BeKranSlaveDevice::DefLampState()
     FIO_KRANSL_TIMEOUT->ClrTimer();		//Сброс таймера крана
 
     FIO_KRANSL_CONTROL_OPEN->SetValue (OFF);
-    FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);
-}  
+    FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);  
+} 
+
 //--- Шум  
 // И так понятно что сброс таймера - Убрала.  
 
@@ -68,30 +69,30 @@ void BeKranSlaveDevice::VerifyError()
                 FIO_KRANSL_DEF_STATE_TIMER->SetTimer (KRANSL_DEF_STATE_TIME , FDamageDefineTime);
             }
         }
-..
-..
-}
-//--- Шум и бормотание  
-//--- Убрала комментарии   
+..  
+..  
+}  
+//--- Шум и бормотание    
+//--- Убрала комментарии    
 
 # 5
-  // Кран закрыт - Хочу открыть
-   else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON))
-   {
-   		// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))
-        //   FValue = KRAN_OPENING1;
-
-         if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))
-           FValue = KRAN_CLOSING;
-
-         else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))
-        	FValue = KRAN_DAMAGED;
-         else
-         	FValue = KRAN_CLOSE;    //управляющих нет
-   }
-   //------------
+  // Кран закрыт - Хочу открыть  
+   else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON))  
+   {  
+   		// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))  
+        //   FValue = KRAN_OPENING1;  
+  
+         if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))  
+           FValue = KRAN_CLOSING;  
+  
+         else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))  
+        	FValue = KRAN_DAMAGED;  
+         else  
+         	FValue = KRAN_CLOSE;    //управляющих нет  
+   }  
+   //------------  
  // Кран закрыт  
-   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))    
+   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))     
    {   
   // Только управляющий закрытия равен 1   
 	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
@@ -110,6 +111,10 @@ void BeKranSlaveDevice::VerifyError()
 //---- Исправила комментарии и имена переменных для большей ясности  
 
 # 6
+     PEXEALARMFUNC Func;  // OnExecute
+     SLine *LineStep;
+     ..
+     ..
 if (command == CLOSE)  
     {        
         FIO_KLAPAN_CONTROL_CLOSE->SetValue(ON);  
@@ -125,3 +130,61 @@ if (command == CLOSE)
 // Других команд здесь и нет. Убрала комментарий  
 
 # 7
+    int         FCount;
+    ... 
+     int ret = -1;
+     FUNCRESULT result;
+     PEXEALARMFUNC Func;  // OnExecute
+     SLine *LineStep;
+     ..
+     ..
+ 
+     result = Func(LineStep, timevalue);    //выполнить эту ф. OnExecute(...)
+ //   Print("result = %i \r\n  \r\n", result);
+
+     if (result == STEP_NEXT)                 //Если ф выполн полностью - переход на след строку
+        {
+            FCurrentIP++;
+
+        if (FCurrentIP >= FCount)       //Больше чем строк в массиве записей-содерж ф.
+            {                           //Закончить ав останов
+                ret = -1;
+                FCurrentIP=0;
+            }
+        }
+
+     ret = result;
+//-------------------
+     static public int ALARM_STOP = -1;
+     
+     int         FAlarmLinesCount;
+     ...
+     
+     int ret = -1;
+     FUNCRESULT result;
+     PEXEALARMFUNC AlarmFunc; 
+     SLine *LineStep;
+     ..
+     ..
+     
+     result = AlarmFunc (LineStep, timevalue);    
+
+     if (result == STEP_NEXT)       
+        {
+            FLineNumber++;
+
+        if (FLineNumber >= FAlarmLinesCount)         	
+            {                             	
+                ret = ALARM_STOP;	//Закончить ав останов  
+                FCurrentLine = 0;  
+            }  
+        }  
+
+     ret = result;    
+     ..  
+        
+     }  
+    return ret;    
+//---- 11 Шум  
+// Изменила имена функций и переменных. Убрала лишние комментарии  
+     
