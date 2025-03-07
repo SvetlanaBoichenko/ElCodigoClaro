@@ -102,9 +102,12 @@ void BeKranSlaveDevice::VerifyError()
         	FValue = KRAN_DAMAGED;  
   
   // В любой другой суперпозиции сигналов  
-	 else   		
-         	FValue = KRAN_CLOSE;     
-   }     
-    
+	 else  		
+          FValue = KRAN_CLOSE;       
+   }  
+      
 //---- Бормотание  
 //---- Исправила комментарии и имена переменных для большей ясности  
+
+# 6
+
