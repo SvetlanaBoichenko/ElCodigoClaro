@@ -1,8 +1,8 @@
 # 1
 /*
-void BeKranSlaveDevice::DefLampState()
-{
-	switch(FValue)
+void BeKranSlaveDevice::DefLampState()  
+{  
+   switch(FValue)  
     {
 		case OPEN:
 
@@ -34,8 +34,8 @@ void BeKranSlaveDevice::DefLampState()
 //--- Изменила имя функции и переменной на более понятные
 
 # 3
-  void BeKranSlaveDevice::OnReset()
-{
+  void BeKranSlaveDevice::OnReset()  
+{  
     FWaitTimeOut = 0;                           //Сброс таймера
     FKranCommand = COMMAND_NONE;
 
