@@ -227,12 +227,48 @@ if (bitNumber == TIMER_BIT)
  ..  
  }  
 
-// 2. Бормотание    
-// убрала неочевидные коммантарии, измениля имена фуекции и переменных    
+// 7. Избыточные комментарии    
+// убрала неочевидные коммантарии, измениля имена функции и переменных    
 
 # 9
 
+// USER CODE BEGIN (ASC_Init,1)
 
+  //   ASC baudrate reload register
+  ///  baudrate =  9600 Baud
+
+  P3    |= 0x0C00;    //  set P3.10 output latch (TXD0)
+  DP3   |= 0x0400;    /// set P3.10 direction control (TXD0 output)
+  DP3   &= 0xF7FF;    /// reset P3.11 direction control (RXD0 input)
+
+//  P1H  = 0x0000;????????      // set port data register?
+//  _nop_();???????
+//  DP1H = 0x07; ?????       // set port direction register
+//  _nop_();?????????
+
+  S0BG  = BaudNum;
+  S0REN = 1;
+  S0TIR = 0;
+
+  // USER CODE END
+}
+//-----------------------------  
+// USER CODE BEGIN (ASC_Init,1)
+
+  P3    |= 0x0C00;    //  set P3.10 output latch (TXD0)
+  DP3   |= 0x0400;    /// set P3.10 direction control (TXD0 output)
+  DP3   &= 0xF7FF;    /// reset P3.11 direction control (RXD0 input)
+
+  S0BG  = BaudNum;
+  S0REN = 1;
+  S0TIR = 0;
+
+  // USER CODE END
+}
+
+// 11. Закомментированный код. Убрала
+
+# 10
 
 
 
