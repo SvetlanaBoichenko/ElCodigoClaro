@@ -180,11 +180,66 @@ if (command == CLOSE)
             }  
         }  
 
-     ret = result;    
+     ret = result;     
      ..  
-        
      }  
     return ret;    
 //---- 11 Шум  
 // Изменила имена функций и переменных. Убрала лишние комментарии  
      
+# 8 
+int TaskBit (int bit_code, int task_no)
+..
+..
+if (bit_code == TIMER_BIT)
+    {
+        bit_code = GetTimerBit();
+
+        if (bit_code < 0)//Если ошибка
+            ret = bit_code;
+        else
+     		ret = TaskTimBit (bit_code, task_no);   // задание N задачи в массиве
+    }    
+	else if (bit_code < MAX_BUS_BITS_COUNT)        // Они первые в списке бит
+   	    ret = TaskBusBit (bit_code | sec_flag, task_no);// Если SecondParent то получится Ошибка -код больше Мах числа сигналов Bus
+	else if ((bit_code >= NET_BIT_BASE) && (bit_code < MAX_NET_BIT_NUMBER))
+ ..
+ ..
+ }
+
+//---------------------
+int TaskBit (int bitCode, int taskNo) {
+..
+..
+if (bitNumber == TIMER_BIT)
+    {
+       bitCode = GetTimerBit();
+
+        if (bitCode < 0)	// Если ошибка
+            ret = ERROR_BIT_CODE;
+        else
+     	    ret = GetTaskTimerNo (bitCode, taskNo);   // задание N задачи в массиве
+    }    
+    else if (bitCode < MAX_BUS_BITS_COUNT)        
+   	    ret = GetTaskTimerNo (bitCode | secondFlag, taskNo);
+	else if ((bitCode >= NET_BIT_BASE) && (bitCode < MAX_NET_BIT_NUMBER))
+ ..
+ ..
+ }
+
+// 2. Бормотание  
+// убрала неочевидные коммантарии, измениля имена фуекции и переменных  
+
+# 9
+
+
+
+
+
+
+
+
+
+
+
+
