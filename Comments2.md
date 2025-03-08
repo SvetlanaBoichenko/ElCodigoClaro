@@ -19,11 +19,10 @@ void BeKranSlaveDevice::DefLampState()
 # 2
     TMDIChild* CurrentChild = 0; 
     ...
-    TBookmark SavePlace;
-    //Закладка на текущей записи
-    SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();
+    TBookmark SavePlace;  
+    SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();   //Закладка на текущей записи
 
-  //-------------------  
+  //-------------------    
   
    TMDIChild* currentWindow = 0;   
     ...  
@@ -49,29 +48,19 @@ void BeKranSlaveDevice::DefLampState()
 // И так понятно что сброс таймера - Убрала.  
 
 # 4
-void BeKranSlaveDevice::VerifyError()
-{                                   //Неисправен  ERROR или DAMAGED
-  
+void BeKranSlaveDevice::VerifyError() //Неисправен  ERROR или DAMAGED
+{                                   
     if ((FValue & DAMAGED) != 0)    //Проверить!!!!!!!!!
     {
         FDamagedCount++;
-
         if (FDamagedCount < FMaxDamagedCount)
         {
-                FValue = FLastGoodValue;    //Пока не меняем состояние
-
+            FValue = FLastGoodValue;    //Пока не меняем состояние
             if (FWaitTimeOut == 0)      //Если не запущен ни один из таймеров крана (по управл или срабатыванию концевого)
-            {
-
-                FWaitTimeOut = KRANSL_DEF_STATE_TIME;
-                FIO_KRANSL_DEF_STATE_TIMER->SetTimer (KRANSL_DEF_STATE_TIME , FDamageDefineTime);
-            }
-        }
-..  
 ..  
 }  
 //--- Шум и бормотание    
-//--- Убрала комментарии    
+//--- Убрала комментариивообще    
 
 # 5
   // Кран закрыт - Хочу открыть  
@@ -128,15 +117,6 @@ if (command == CLOSE)
 // Других команд здесь и нет. Убрала комментарий  
 
 # 7
-    int         FCount;
-    ... 
-     int ret = -1;
-     FUNCRESULT result;
-     PEXEALARMFUNC Func;  // OnExecute
-     SLine *LineStep;
-     ..
-     ..
- 
      result = Func(LineStep, timevalue);    //выполнить эту ф. OnExecute(...)
  //   Print("result = %i \r\n  \r\n", result);
 
@@ -150,80 +130,35 @@ if (command == CLOSE)
                 FCurrentIP=0;
             }
         }
-
-     ret = result;
-//-------------------
-     static public int ALARM_STOP = -1;
-     
-     int         FAlarmLinesCount;
-     ...
-     
-     int ret = -1;
-     FUNCRESULT result;
-     PEXEALARMFUNC AlarmFunc; 
-     SLine *LineStep;
-     ..
-     ..
-     
+//-------------------     
      result = AlarmFunc (LineStep, timevalue);    
-
      if (result == STEP_NEXT)       
         {
             FLineNumber++;
-
-        if (FLineNumber >= FAlarmLinesCount)         	
+            if (FLineNumber >= FAlarmLinesCount)         	
             {                             	
-                ret = ALARM_STOP;	//Закончить ав останов  
+                ret = ALARM_STOP;	//Закончить аварийный останов  
                 FCurrentLine = 0;  
             }  
         }  
-
-     ret = result;     
-     ..  
-     }  
-    return ret;    
 //---- 11 Шум  
 // Изменила имена функций и переменных. Убрала лишние комментарии  
      
 # 8 
-int TaskBit (int bit_code, int task_no) {  
-..  
-..  
-if (bit_code == TIMER_BIT)  
-    {  
-        bit_code = GetTimerBit();  
-  
-        if (bit_code < 0)     //Если ошибка  
-            ret = bit_code;  
-        else  
-     		ret = TaskTimBit (bit_code, task_no);   // задание N задачи в массиве  
-    }      
-	else if (bit_code < MAX_BUS_BITS_COUNT)        // Они первые в списке бит  
-   	    ret = TaskBusBit (bit_code | sec_flag, task_no);// Если SecondParent то получится Ошибка -код больше Мах числа сигналов Bus  
-	else if ((bit_code >= NET_BIT_BASE) && (bit_code < MAX_NET_BIT_NUMBER))  
- ..  
- ..  
- }  
-
-//---------------------
-int TaskBit (int bitCode, int taskNo) {  
-..  
-..  
-if (bitNumber == TIMER_BIT)  
-    {  
-       bitCode = GetTimerBit();  
-  
-        if (bitCode < 0)	// Если ошибка  
-            ret = ERROR_BIT_CODE;  
-        else  
-     	    ret = GetTaskTimerNo (bitCode, taskNo);   // задание N задачи в массиве  
-    }      
-    else if (bitCode < MAX_BUS_BITS_COUNT)          
-   	    ret = GetTaskTimerNo (bitCode | secondFlag, taskNo);  
-	else if ((bitCode >= NET_BIT_BASE) && (bitCode < MAX_NET_BIT_NUMBER))  
- ..  
- ..  
- }  
+..
+if (bit_code < 0)     //Если ошибка  
+    ret = bit_code;  
+else  
+    ret = TaskTimBit (bit_code, task_no);      // Задание N задачи в массиве       
+else if (bit_code < MAX_BUS_BITS_COUNT)        // Они первые в списке бит  
+   	ret = TaskBusBit (bit_code | sec_flag, task_no); // Если SecondParent то получится Ошибка -код больше Мах числа сигналов Bus  
+ ..   
+ 
+//---------------------  
+if (bitCode < 0)	   
+    ret = ERROR_BIT_CODE;  
+else  
+     ret = GetTaskTimerNo (bitCode, taskNo);   // номер задачи в массиве задач     
 
 // 7. Избыточные комментарии    
 // убрала неочевидные коммантарии, измениля имена функции и переменных    
@@ -247,31 +182,17 @@ if (bitNumber == TIMER_BIT)
   S0BG  = BaudNum;
   S0REN = 1;
   S0TIR = 0;
-
-  // USER CODE END
-}
-//-----------------------------  
-// USER CODE BEGIN (ASC_Init,1)
-
-  P3    |= 0x0C00;    //  set P3.10 output latch (TXD0)
-  DP3   |= 0x0400;    /// set P3.10 direction control (TXD0 output)
-  DP3   &= 0xF7FF;    /// reset P3.11 direction control (RXD0 input)
-
-  S0BG  = BaudNum;
-  S0REN = 1;
-  S0TIR = 0;
-
-  // USER CODE END
-}
-
+// USER CODE END
+}  
 // 11. Закомментированный код. Убрала
 
 # 10
+DP8  = 0x009F;  // Бойченко для резервов 8_5 и 8_6 на вход //0x00FF;// set port direction register-
+//---------------------------
+DP8  = 0x009F;  // Для пинов 8_5 и 8_6 на вход для сигнализации 
+// Убрала лишенее  
 
-
-
-
-
+# 11
 
 
 
