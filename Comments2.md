@@ -64,12 +64,12 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
    else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON)) {     
    	// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))    
         //   FValue = KRAN_OPENING1;   
-         if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
-           FValue = KRAN_CLOSING;   
-         else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
-        	FValue = KRAN_DAMAGED;   
-         else    
-         	FValue = KRAN_CLOSE;    //управляющих нет    
+          &ensp;if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
+            &ensp; &ensp;FValue = KRAN_CLOSING;   
+         &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
+        	 &ensp; &ensp;FValue = KRAN_DAMAGED;   
+          &ensp; else    
+         	 &ensp; &ensp; FValue = KRAN_CLOSE;    //управляющих нет    
    }    
    //------------  
  // Кран закрыт  
@@ -84,28 +84,25 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
 	 else  		 
           FValue = KRAN_CLOSE;         
    }   
-     
+      
 //----2. Бормотание   
 //---- Исправила комментарии и имена переменных для большей ясности    
 
 # 6
-     PEXEALARMFUNC Func;  // OnExecute
-     SLine *LineStep;
-     ..
-     ..
-if (command == CLOSE)  
-    {        
-        FIO_KLAPAN_CONTROL_CLOSE->SetValue(ON);  
-        FIO_KLAPAN_CONTROL_OPEN->SetValue(OFF);  
+if (command == CLOSE)    
+     &ensp;{        
+      &ensp; &ensp;   FIO_KLAPAN_CONTROL_CLOSE->SetValue(ON);  
+      &ensp; &ensp;   FIO_KLAPAN_CONTROL_OPEN->SetValue(OFF);  
                      //Фиксируектс¤ только OPEN & CLOSE  
-     }  
-    if (command == OPEN)  
-    {
-        FIO_KLAPAN_CONTROL_CLOSE->SetValue(OFF);  
-        FIO_KLAPAN_CONTROL_OPEN->SetValue(ON);  
-    }  
-//---- Шум  
-// Других команд здесь и нет. Убрала комментарий  
+      &ensp;}  
+     &ensp;if (command == OPEN)  
+    &ensp; {
+       &ensp; &ensp;  FIO_KLAPAN_CONTROL_CLOSE->SetValue(OFF);  
+       &ensp; &ensp;  FIO_KLAPAN_CONTROL_OPEN->SetValue(ON);  
+     &ensp;}    
+       
+//---- Шум   
+// Других команд здесь и нет. Убрала комментарий    
 
 # 7
      result = Func(LineStep, timevalue);    //выполнить эту ф. OnExecute(...)
