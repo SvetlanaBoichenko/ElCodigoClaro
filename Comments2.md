@@ -64,25 +64,25 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
    else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON)) {     
    	// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))    
         //   FValue = KRAN_OPENING1;   
-          &ensp;if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
-            &ensp; &ensp;FValue = KRAN_CLOSING;   
-         &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
-        	 &ensp; &ensp;FValue = KRAN_DAMAGED;   
-          &ensp; else    
-         	 &ensp; &ensp; FValue = KRAN_CLOSE;    //управляющих нет    
+           &ensp; &ensp;if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
+             &ensp; &ensp; &ensp;FValue = KRAN_CLOSING;   
+          &ensp; &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
+        	  &ensp; &ensp; &ensp; FValue = KRAN_DAMAGED;   
+           &ensp; &ensp; else    
+         	 &ensp; &ensp; &ensp; FValue = KRAN_CLOSE;    //управляющих нет    
    }    
    //------------  
  // Кран закрыт  
    else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))  {     
   // Только управляющий закрытия равен 1   
-	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))    
-           FValue = KRAN_CLOSING;   
+	&ensp;if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))    
+       &ensp;&ensp;    FValue = KRAN_CLOSING;   
  // Управляющие сигналы  - оба равны 1   
-         else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
-        	FValue = KRAN_DAMAGED;   
+      &ensp;   else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
+        &ensp;&ensp;	FValue = KRAN_DAMAGED;   
   // В любой другой суперпозиции сигналов   
-	 else  		 
-          FValue = KRAN_CLOSE;         
+	&ensp; else  		 
+       &ensp;&ensp;   FValue = KRAN_CLOSE;         
    }   
       
 //----2. Бормотание   
