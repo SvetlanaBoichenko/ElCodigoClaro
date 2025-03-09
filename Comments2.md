@@ -199,8 +199,39 @@ DP8  = 0x009F;  // настройка порта 8 для пинов 5 и 6 на
 
 // 2. Бормотание. Изменила  комментарий
 
-# 12
-    ZubCount++;
-    TimeCount += CAPREL;            //ÀÁ++ 20080423
 
-   	T5IR = 0;	//???? Ïîêà íå çíàþ - çà÷åì...
+# 12
+bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {  
+    bool    ret = false;  
+    if (sig != 0)  {  
+        // Вернуть флаг  
+        FLAG        sigtype   = sig->GetFlags (SIG_MAYBECONFIG);  
+        FLAG        sigrw     = sig->GetFlags (SIG_RW);  
+..  
+..  
+}  
+// 3. Недостоверные комментарии. Флаг здесь не возвращается. Убрала комментарий
+
+
+# 13
+   if(T5IR==0)				//Если переполнения не было то посылаем сигнал о тике
+   {
+	Freq = CAPREL;			//Chislo Tikov
+	os_send_signal (Turbo_Task);
+   }	.
+
+//-------------------------------
+
+ if(T5IR == 0)				// Переполнения нет
+   {
+	Freq = CAPREL;			// Берем частоту из содержимого регистра  CAPREL
+	os_send_signal (Turbo_Task);    
+   }	
+
+// 9. Нелокальная информация. 
+
+# 14
+
+
+
+
