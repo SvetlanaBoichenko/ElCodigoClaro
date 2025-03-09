@@ -40,7 +40,7 @@ saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();
     &ensp;  FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);  
 }   
   
-//--- Шум   
+//--- 4. Шум   
 // И так понятно что сброс таймера - Убрала.  
 
 # 4
@@ -56,7 +56,7 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
 ..      
 }    
   
-//--- Шум и бормотание      
+//---4. Шум и бормотание      
 //--- Убрала комментариивообще      
 
 # 5
@@ -84,7 +84,7 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
        &ensp;&ensp;   FValue = KRAN_CLOSE;         
    }   
       
-//----Излишние комментарии   
+//----7. Излишние комментарии   
 //---- Исправила комментарии и имена переменных для большей ясности    
 
 # 6
@@ -100,7 +100,7 @@ if (command == CLOSE)
        &ensp; &ensp;  FIO_KLAPAN_CONTROL_OPEN->SetValue(ON);  
      &ensp;}    
        
-//---- Шум   
+//----4. Шум   
 // Других команд здесь и нет. Убрала комментарий    
 
 # 7
@@ -128,7 +128,7 @@ result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecut
             }     
         }     
 	   
-//---- 11 Шум    
+//---- 4. Шум    
 // Изменила имена функций и переменных. Убрала лишние комментарии    
      
 # 8 
