@@ -21,13 +21,12 @@ TMDIChild* CurrentChild = 0;
 ...  
 Bookmark SavePlace;  
 SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();  //Закладка на текущей записи   
-   
-     //-------------------      
+//-------------------      
 TMDIChild* currentWindow = 0;    
 ...   
-TBookmark saveRecordPlace;  
-saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();       
-//--- 12. Не используйте комментарии там, где можно использовать функцию или переменную    
+TBookmark saveRecordPlace;   
+saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();         
+//--- 12. Не используйте комментарии там, где можно использовать функцию или переменную      
 //--- Изменила имя функции и переменной на более понятные  
 
 # 3
