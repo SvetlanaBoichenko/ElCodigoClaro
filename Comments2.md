@@ -104,87 +104,85 @@ if (command == CLOSE)
 // Других команд здесь и нет. Убрала комментарий    
 
 # 7
-     result = Func(LineStep, timevalue);    //выполнить эту ф. OnExecute(...)
- //   Print("result = %i \r\n  \r\n", result);
-
-     if (result == STEP_NEXT)                 //Если ф выполн полностью - переход на след строку
-        {
-            FCurrentIP++;
-
-        if (FCurrentIP >= FCount)       //Больше чем строк в массиве записей-содерж ф.
-            {                           //Закончить ав останов
-                ret = -1;
-                FCurrentIP=0;
-            }
-        }
-//-------------------     
-     result = AlarmFunc (LineStep, timevalue);    
-     if (result == STEP_NEXT)       
-        {
-            FLineNumber++;
-            if (FLineNumber >= FAlarmLinesCount)         	
-            {                             	
-                ret = ALARM_STOP;	//Закончить аварийный останов  
-                FCurrentLine = 0;  
-            }  
+     result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecute(...)  
+ //   Print("result = %i \r\n  \r\n", result);  
+     if (result == STEP_NEXT)  //Если ф выполн полностью - переход на след строку  
+        {  
+         &ensp;   FCurrentIP++;  
+         &ensp; if (FCurrentIP >= FCount)       //Больше чем строк в массиве записей-содерж ф.  
+           &ensp; {                           //Закончить ав останов  
+           &ensp;&ensp;     ret = -1;  
+            &ensp;&ensp;    FCurrentIP=0;   
+           &ensp; }   
         }  
-//---- 11 Шум  
-// Изменила имена функций и переменных. Убрала лишние комментарии  
+	  
+//-------------------       
+     result = AlarmFunc (LineStep, timevalue);      
+     if (result == STEP_NEXT)         
+        {  
+          &ensp;  FLineNumber++;  
+         &ensp;   if (FLineNumber >= FAlarmLinesCount)           	
+         &ensp;   {                               	
+            &ensp;&ensp;    ret = ALARM_STOP;	//Закончить аварийный останов    
+            &ensp;&ensp;    FCurrentLine = 0;    
+            }    
+        }   
+	  
+//---- 11 Шум    
+// Изменила имена функций и переменных. Убрала лишние комментарии    
      
 # 8 
 ..
-if (bit_code < 0)     //Если ошибка  
-    ret = bit_code;  
-else  
-    ret = TaskTimBit (bit_code, task_no);      // Задание N задачи в массиве       
+if (bit_code < 0)     //Если ошибка    
+&ensp;    ret = bit_code;  
+else    
+&ensp;    ret = TaskTimBit (bit_code, task_no);      // Задание N задачи в массиве         
 else if (bit_code < MAX_BUS_BITS_COUNT)        // Они первые в списке бит  
-   	ret = TaskBusBit (bit_code | sec_flag, task_no); // Если SecondParent то получится Ошибка -код больше Мах числа сигналов Bus  
- ..   
- 
-//---------------------  
-if (bitCode < 0)	   
-    ret = ERROR_BIT_CODE;  
+   &ensp;	ret = TaskBusBit (bit_code | sec_flag, task_no); // Если SecondParent то получится Ошибка -код больше Мах числа сигналов Bus    
+ ..     
+   
+//---------------------    
+if (bitCode < 0)  	   
+  &ensp;  ret = ERROR_BIT_CODE;    
 else  
-     ret = GetTaskTimerNo (bitCode, taskNo);   // номер задачи в массиве задач     
-
-// 7. Избыточные комментарии    
-// убрала неочевидные коммантарии, измениля имена функции и переменных    
+ &ensp;    ret = GetTaskTimerNo (bitCode, taskNo);   // номер задачи в массиве задач       
+  
+// 7. Избыточные комментарии      
+// убрала неочевидные коммантарии, измениля имена функции и переменных      
 
 # 9
 
-// USER CODE BEGIN (ASC_Init,1)
+// USER CODE BEGIN (ASC_Init,1)  
+  //   ASC baudrate reload register  
+  ///  baudrate =  9600 Baud  
 
-  //   ASC baudrate reload register
-  ///  baudrate =  9600 Baud
-
-  P3    |= 0x0C00;    //  set P3.10 output latch (TXD0)
-  DP3   |= 0x0400;    /// set P3.10 direction control (TXD0 output)
-  DP3   &= 0xF7FF;    /// reset P3.11 direction control (RXD0 input)
-
-//  P1H  = 0x0000;????????      // set port data register?
-//  _nop_();???????
-//  DP1H = 0x07; ?????       // set port direction register
-//  _nop_();?????????
-
-  S0BG  = BaudNum;
-  S0REN = 1;
-  S0TIR = 0;
-// USER CODE END
-}  
+  P3    |= 0x0C00;    //  set P3.10 output latch (TXD0)  
+  DP3   |= 0x0400;    /// set P3.10 direction control (TXD0 output)  
+  DP3   &= 0xF7FF;    /// reset P3.11 direction control (RXD0 input)  
+//  P1H  = 0x0000;????????      // set port data register?  
+//  _nop_();???????  
+//  DP1H = 0x07; ?????       // set port direction register  
+//  _nop_();?????????  
+  S0BG  = BaudNum;  
+  S0REN = 1;  
+  S0TIR = 0;  
+// USER CODE END  
+}    
+  
 // 11. Закомментированный код. Убрала
 
 # 10
-DP8  = 0x009F;  // Бойченко для резервов 8_5 и 8_6 на вход //0x00FF;// set port direction register-
-//---------------------------
-DP8  = 0x009F;  // настройка порта 8 для пинов 5 и 6 на вход для сигнализации 
-// Убрала лишенее, изменила комментарий  
+DP8  = 0x009F;  // Бойченко для резервов 8_5 и 8_6 на вход //0x00FF;// set port direction register  
+//---------------------------  
+DP8  = 0x009F;  // настройка порта 8 для пинов 5 и 6 на вход для сигнализации   
+  
+// Убрала лишенее, изменила комментарий    
 
 # 11
-   FOutCommand = NET_COMMAND_ERROR_ANSWER; //Выставляем ответ с ошибкой, пока...
-
-   FOutCommand = NET_COMMAND_ERROR_ANSWER; //По умолчанию - команда с ошибкой.
-
-// 2. Бормотание. Изменила  комментарий
+   FOutCommand = NET_COMMAND_ERROR_ANSWER; //Выставляем ответ с ошибкой, пока...  
+   FOutCommand = NET_COMMAND_ERROR_ANSWER; //По умолчанию - команда с ошибкой.  
+  
+// 2. Бормотание. Изменила  комментарий  
 
 
 # 12
