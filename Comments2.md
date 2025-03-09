@@ -48,16 +48,16 @@ void BeKranSlaveDevice::DefLampState()
 // И так понятно что сброс таймера - Убрала.  
 
 # 4
-void BeKranSlaveDevice::VerifyError() //Неисправен  ERROR или DAMAGED
-{                                   
-    if ((FValue & DAMAGED) != 0)    //Проверить!!!!!!!!!
-    {
-        FDamagedCount++;
-        if (FDamagedCount < FMaxDamagedCount)
-        {
-            FValue = FLastGoodValue;    //Пока не меняем состояние
-            if (FWaitTimeOut == 0)      //Если не запущен ни один из таймеров крана (по управл или срабатыванию концевого)
-..  
+void BeKranSlaveDevice::VerifyError() //Неисправен  ERROR или DAMAGED  
+{                                     
+    if ((FValue & DAMAGED) != 0)    //Проверить!!!!!!!!!  
+    {  
+        FDamagedCount++;  
+        if (FDamagedCount < FMaxDamagedCount)  
+        {  
+            FValue = FLastGoodValue;    //Пока не меняем состояние  
+            if (FWaitTimeOut == 0)      //Если не запущен ни один из таймеров крана (по управл или срабатыванию концевого) 
+..    
 }  
 //--- Шум и бормотание    
 //--- Убрала комментариивообще    
@@ -231,7 +231,9 @@ bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {
 // 9. Нелокальная информация. 
 
 # 14
+       ClearCom (DEF_COM_PORT);	//Помогает убрать накапливающуюся(???) ошибку обмена  
+// 3. Недостоверный комментарий. Убрала
 
-
-
+ # 15
+ 
 
