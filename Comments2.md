@@ -25,23 +25,24 @@ SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();  //Закладка на
 TMDIChild* currentWindow = 0;    
 ...   
 TBookmark saveRecordPlace;   
+  
 saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();         
 //--- 12. Не используйте комментарии там, где можно использовать функцию или переменную      
 //--- Изменила имя функции и переменной на более понятные  
 
 # 3
-  void BeKranSlaveDevice::OnReset()  
-{  
-    FWaitTimeOut = 0;                           //Сброс таймера
-    FKranCommand = COMMAND_NONE;
-
-    FIO_KRANSL_TIMEOUT->ClrTimer();		//Сброс таймера крана
-
-    FIO_KRANSL_CONTROL_OPEN->SetValue (OFF);
-    FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);  
-} 
-
-//--- Шум  
+  void BeKranSlaveDevice::OnReset()   
+{   
+   &ensp; FWaitTimeOut = 0;                           //Сброс таймера  
+    &ensp; FKranCommand = COMMAND_NONE;  
+  
+    &ensp; FIO_KRANSL_TIMEOUT->ClrTimer();		//Сброс таймера крана  
+  
+    &ensp; FIO_KRANSL_CONTROL_OPEN->SetValue (OFF);
+    v FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);  
+}   
+  
+//--- Шум   
 // И так понятно что сброс таймера - Убрала.  
 
 # 4
