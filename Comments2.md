@@ -25,8 +25,8 @@ SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();  //Закладка на
 TMDIChild* currentWindow = 0;    
 ...   
 TBookmark saveRecordPlace;   
+saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark(); 
   
-saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();         
 //--- 12. Не используйте комментарии там, где можно использовать функцию или переменную      
 //--- Изменила имя функции и переменной на более понятные  
 
@@ -44,19 +44,20 @@ saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();
 // И так понятно что сброс таймера - Убрала.  
 
 # 4
-void BeKranSlaveDevice::VerifyError() //Неисправен  ERROR или DAMAGED  
-{                                     
-    if ((FValue & DAMAGED) != 0)    //Проверить!!!!!!!!!  
-    {  
-        FDamagedCount++;  
-        if (FDamagedCount < FMaxDamagedCount)  
-        {  
-            FValue = FLastGoodValue;    //Пока не меняем состояние  
-            if (FWaitTimeOut == 0)      //Если не запущен ни один из таймеров крана (по управл или срабатыванию концевого) 
-..    
-}  
-//--- Шум и бормотание    
-//--- Убрала комментариивообще    
+void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMAGED    
+{                                      
+    if ((FValue & DAMAGED) != 0)    // Проверить!!!!!!!!!    
+    {   
+         &ensp; FDamagedCount++;    
+        &ensp; if (FDamagedCount < FMaxDamagedCount)    
+         &ensp;{    
+             &ensp; FValue = FLastGoodValue;    //Пока не меняем состояние  
+             &ensp; if (FWaitTimeOut == 0)      //Если не запущен ни один из таймеров крана (по управл или срабатыванию концевого)  
+..      
+}    
+  
+//--- Шум и бормотание      
+//--- Убрала комментариивообще      
 
 # 5
   // Кран закрыт - Хочу открыть  
