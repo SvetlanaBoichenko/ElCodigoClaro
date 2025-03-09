@@ -104,11 +104,11 @@ if (command == CLOSE)
 // Других команд здесь и нет. Убрала комментарий    
 
 # 7
-     result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecute(...)  
- //   Print("result = %i \r\n  \r\n", result);  
+     result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecute(...)    
+ //   Print("result = %i \r\n  \r\n", result);    
      if (result == STEP_NEXT)  //Если ф выполн полностью - переход на след строку  
-        {  
-         &ensp;   FCurrentIP++;  
+        {   
+         &ensp;   FCurrentIP++;   
          &ensp; if (FCurrentIP >= FCount)       //Больше чем строк в массиве записей-содерж ф.  
            &ensp; {                           //Закончить ав останов  
            &ensp;&ensp;     ret = -1;  
@@ -117,23 +117,23 @@ if (command == CLOSE)
         }  
 	  
 //-------------------       
-     result = AlarmFunc (LineStep, timevalue);      
-     if (result == STEP_NEXT)         
-        {  
-          &ensp;  FLineNumber++;  
-         &ensp;   if (FLineNumber >= FAlarmLinesCount)           	
-         &ensp;   {                               	
-            &ensp;&ensp;    ret = ALARM_STOP;	//Закончить аварийный останов    
-            &ensp;&ensp;    FCurrentLine = 0;    
-            }    
-        }   
-	  
+     result = AlarmFunc (LineStep, timevalue);       
+     if (result == STEP_NEXT)           
+        {   
+          &ensp;  FLineNumber++;    
+         &ensp;   if (FLineNumber >= FAlarmLinesCount)             	
+         &ensp;   {                                 	
+            &ensp;&ensp;    ret = ALARM_STOP;	//Закончить аварийный останов      
+            &ensp;&ensp;    FCurrentLine = 0;      
+            }     
+        }     
+	   
 //---- 11 Шум    
 // Изменила имена функций и переменных. Убрала лишние комментарии    
      
 # 8 
 ..
-if (bit_code < 0)     //Если ошибка    
+if (bit_code < 0)     //Если ошибка     
 &ensp;    ret = bit_code;  
 else    
 &ensp;    ret = TaskTimBit (bit_code, task_no);      // Задание N задачи в массиве         
@@ -179,49 +179,47 @@ DP8  = 0x009F;  // настройка порта 8 для пинов 5 и 6 на
 // Убрала лишенее, изменила комментарий    
 
 # 11
-   FOutCommand = NET_COMMAND_ERROR_ANSWER; //Выставляем ответ с ошибкой, пока...  
-   FOutCommand = NET_COMMAND_ERROR_ANSWER; //По умолчанию - команда с ошибкой.  
-  
+   FOutCommand = NET_COMMAND_ERROR_ANSWER; //Выставляем ответ с ошибкой, пока...    
+   FOutCommand = NET_COMMAND_ERROR_ANSWER; //По умолчанию - команда с ошибкой.    
+    
 // 2. Бормотание. Изменила  комментарий  
 
-
 # 12
-bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {  
-    bool    ret = false;  
-    if (sig != 0)  {  
-        // Вернуть флаг  
-        FLAG        sigtype   = sig->GetFlags (SIG_MAYBECONFIG);  
-        FLAG        sigrw     = sig->GetFlags (SIG_RW);  
-..  
-..  
-}  
-// 3. Недостоверные комментарии. Флаг здесь не возвращается. Убрала комментарий
-
+bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {    
+    bool    ret = false;    
+    if (sig != 0)  {    
+        // Вернуть флаг    
+        FLAG        sigtype   = sig->GetFlags (SIG_MAYBECONFIG);    
+        FLAG        sigrw     = sig->GetFlags (SIG_RW);    
+..    
+..   
+}     
+// 3. Недостоверные комментарии. Флаг здесь не возвращается. Убрала комментарий  
 
 # 13
-   if(T5IR==0)				//Если переполнения не было то посылаем сигнал о тике
-   {
-	Freq = CAPREL;			//Chislo Tikov
-	os_send_signal (Turbo_Task);
-   }	.
+   if(T5IR==0)				//Если переполнения не было то посылаем сигнал о тике  
+   {  
+	Freq = CAPREL;			//Chislo Tikov  
+	os_send_signal (Turbo_Task);  
+   }	.  
 
-//-------------------------------
-
- if(T5IR == 0)				// Переполнения нет
-   {
-	Freq = CAPREL;			// Берем частоту из содержимого регистра  CAPREL
-	os_send_signal (Turbo_Task);    
+//-------------------------------  
+  
+ if(T5IR == 0)				// Переполнения нет  
+   {  
+	Freq = CAPREL;			// Берем частоту из содержимого спец регистра  CAPREL  
+	os_send_signal (Turbo_Task);      
    }	
 
-// 9. Нелокальная информация. 
+// 9. Нелокальная информация.   
 
 # 14
-       ClearCom (DEF_COM_PORT);	//Помогает убрать накапливающуюся(???) ошибку обмена  
-// 3. Недостоверный комментарий. Убрала
+       ClearCom (DEF_COM_PORT);  	//Помогает убрать накапливающуюся(???) ошибку обмена      
+// 3. Недостоверный комментарий. Убрала    
 
- # 15
+ # 15 
  
-sig = (BeSignal*)GetByStringID (sigid); //СОздать сиг с именем, из списка имен если его пор номер не > FCount  
-                                                //FCount - при созд объ - кран  
-// 3. Недостоверный комментарий. Убрала
+sig = (BeSignal*)GetByStringID (sigid); //СОздать сиг с именем, из списка имен если его пор номер не > FCount    
+                                                //FCount - при созд объ - кран    
+// 3. Недостоверный комментарий. Убрала  
 
