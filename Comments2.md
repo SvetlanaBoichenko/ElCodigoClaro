@@ -5,10 +5,10 @@ void BeKranSlaveDevice::DefLampState()
    switch(FValue)  
     {   
     	case OPEN:  
-         	FIO_KRANSL_OPEN_LAMP->StopBlink();  
-            FIO_KRANSL_CLOSE_LAMP->StopBlink();  
-         	FIO_KRANSL_CLOSE_LAMP->SetValue (OFF);  
-            FIO_KRANSL_OPEN_LAMP->SetValue (ON);  
+         &ensp; FIO_KRANSL_OPEN_LAMP->StopBlink();  
+         &ensp; FIO_KRANSL_CLOSE_LAMP->StopBlink();  
+         &ensp; FIO_KRANSL_CLOSE_LAMP->SetValue (OFF);  
+         &ensp; FIO_KRANSL_OPEN_LAMP->SetValue (ON);  
       	break;  
 ..  
 ..  
@@ -17,20 +17,17 @@ void BeKranSlaveDevice::DefLampState()
 //--- Убрала.  
 
 # 2
-    TMDIChild* CurrentChild = 0; 
-    ...
-    TBookmark SavePlace;  
-    SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();   //Закладка на текущей записи
-
-  //-------------------    
-  
-   TMDIChild* currentWindow = 0;   
-    ...  
-    TBookmark saveRecordPlace;  
-    saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();   
-    
-//--- 12. Не используйте комментарии там, где можно использовать функцию или переменную  
-//--- Изменила имя функции и переменной на более понятные
+TMDIChild* CurrentChild = 0; 
+...
+Bookmark SavePlace;  
+SavePlace = CurrentChild->ADOQueryEvent->GetBookmark(); //Закладка на текущей записи  
+  //-------------------      
+TMDIChild* currentWindow = 0;   
+...  
+TBookmark saveRecordPlace;  
+saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();       
+//--- 12. Не используйте комментарии там, где можно использовать функцию или переменную    
+//--- Изменила имя функции и переменной на более понятные  
 
 # 3
   void BeKranSlaveDevice::OnReset()  
