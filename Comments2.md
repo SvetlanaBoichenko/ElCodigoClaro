@@ -104,9 +104,9 @@ if (command == CLOSE)
 // Других команд здесь и нет. Убрала комментарий    
 
 # 7
-     result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecute(...)    
- //   Print("result = %i \r\n  \r\n", result);    
-     if (result == STEP_NEXT)  //Если ф выполн полностью - переход на след строку  
+result = Func(LineStep, timevalue);    // выполнить эту ф. OnExecute(...)     
+ //   Print("result = %i \r\n  \r\n", result);     
+     if (result == STEP_NEXT)  //Если ф выполн полностью - переход на след строку   
         {   
          &ensp;   FCurrentIP++;   
          &ensp; if (FCurrentIP >= FCount)       //Больше чем строк в массиве записей-содерж ф.  
@@ -214,7 +214,7 @@ bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {
 // 9. Нелокальная информация.   
 
 # 14
-       ClearCom (DEF_COM_PORT);  	//Помогает убрать накапливающуюся(???) ошибку обмена      
+ClearCom (DEF_COM_PORT);  	//Помогает убрать накапливающуюся(???) ошибку обмена      
 // 3. Недостоверный комментарий. Убрала    
 
  # 15 
