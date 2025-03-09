@@ -35,7 +35,6 @@ saveRecordPlace = currentWindow->ADOQueryEvent->GetBookmark();
 {   
    &ensp; FWaitTimeOut = 0;                           //Сброс таймера  
     &ensp; FKranCommand = COMMAND_NONE;  
-  
     &ensp; FIO_KRANSL_TIMEOUT->ClrTimer();		//Сброс таймера крана   
     &ensp; FIO_KRANSL_CONTROL_OPEN->SetValue (OFF);
     &ensp;  FIO_KRANSL_CONTROL_CLOSE->SetValue (OFF);  
