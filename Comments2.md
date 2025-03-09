@@ -236,4 +236,7 @@ bool BeReestr::SetIOPin (char *devtype, BeSignal* sig, int iodevid, int pinid) {
 
  # 15
  
+sig = (BeSignal*)GetByStringID (sigid); //СОздать сиг с именем, из списка имен если его пор номер не > FCount  
+                                                //FCount - при созд объ - кран  
+// 3. Недостоверный комментарий. Убрала
 
