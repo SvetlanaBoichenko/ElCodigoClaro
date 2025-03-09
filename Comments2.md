@@ -64,8 +64,10 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
    else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON)) {     
    	// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))    
         //   FValue = KRAN_OPENING1;   
+	//Только управляющий закрытия 
            &ensp; &ensp;if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
-             &ensp; &ensp; &ensp;FValue = KRAN_CLOSING;   
+             &ensp; &ensp; &ensp;FValue = KRAN_CLOSING; 
+	   //  Два управляющих взведены
           &ensp; &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
         	  &ensp; &ensp; &ensp; FValue = KRAN_DAMAGED;   
            &ensp; &ensp; else    
@@ -74,14 +76,11 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
    //------------  
  // Кран закрыт  
    else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))  {     
-  // Только управляющий закрытия равен 1   
-	&ensp;if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))    
+	&ensp;if ((KRAN_CONTROL_CLOSE->Value() == ON) &&(KRAN_CONTROL_OPEN->Value() == ON))    
        &ensp;&ensp;    FValue = KRAN_CLOSING;   
- // Управляющие сигналы  - оба равны 1   
       &ensp;   else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
-        &ensp;&ensp;	FValue = KRAN_DAMAGED;   
-  // В любой другой суперпозиции сигналов   
-	&ensp; else  		 
+        &ensp;&ensp;	FValue = KRAN_DAMAGED;    
+	&ensp; else   		 
        &ensp;&ensp;   FValue = KRAN_CLOSE;         
    }   
       
