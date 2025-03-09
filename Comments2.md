@@ -4,12 +4,12 @@ void BeKranSlaveDevice::DefLampState()
 {  
    switch(FValue)  
     {   
-    	case OPEN:  
-         &ensp;    FIO_KRANSL_OPEN_LAMP->StopBlink();  
-         &ensp;    FIO_KRANSL_CLOSE_LAMP->StopBlink();  
-         &ensp;    FIO_KRANSL_CLOSE_LAMP->SetValue (OFF);  
-         &ensp;    FIO_KRANSL_OPEN_LAMP->SetValue (ON);  
-      	break;  
+    	&ensp; case OPEN:  
+         &ensp;&ensp;    FIO_KRANSL_OPEN_LAMP->StopBlink();  
+         &ensp;&ensp;    FIO_KRANSL_CLOSE_LAMP->StopBlink();  
+         &ensp;&ensp;    FIO_KRANSL_CLOSE_LAMP->SetValue (OFF);  
+         &ensp;&ensp;    FIO_KRANSL_OPEN_LAMP->SetValue (ON);  
+      	&ensp;break;  
 ..  
 ..  
 */  
