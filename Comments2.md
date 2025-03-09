@@ -60,39 +60,33 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
 //--- Убрала комментариивообще      
 
 # 5
-  // Кран закрыт - Хочу открыть  
-   else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON))  
-   {  
-   		// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))  
-        //   FValue = KRAN_OPENING1;  
-  
-         if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))  
-           FValue = KRAN_CLOSING;  
-  
-         else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))  
-        	FValue = KRAN_DAMAGED;  
-         else  
-         	FValue = KRAN_CLOSE;    //управляющих нет  
-   }  
+  // Кран закрыт - Хочу открыть    
+   else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON)) {     
+   	// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))    
+        //   FValue = KRAN_OPENING1;   
+         if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
+           FValue = KRAN_CLOSING;   
+         else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
+        	FValue = KRAN_DAMAGED;   
+         else    
+         	FValue = KRAN_CLOSE;    //управляющих нет    
+   }    
    //------------  
  // Кран закрыт  
-   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))     
-   {   
+   else if ((KRAN_SENSOR_OPEN->Value() == OFF) && (KRAN_SENSOR_CLOSE->Value() == ON))  {     
   // Только управляющий закрытия равен 1   
-	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
-           FValue = KRAN_CLOSING;  
- 
- // Управляющие сигналы  - оба равны 1  
-         else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))  
-        	FValue = KRAN_DAMAGED;  
-  
-  // В любой другой суперпозиции сигналов  
-	 else  		
-          FValue = KRAN_CLOSE;       
-   }  
-      
-//----2. Бормотание  
-//---- Исправила комментарии и имена переменных для большей ясности  
+	if ((KRAN_CONTROL_OPEN->Value() == OFF) &&(KRAN_CONTROL_CLOSE->Value() == ON))    
+           FValue = KRAN_CLOSING;   
+ // Управляющие сигналы  - оба равны 1   
+         else if ((KRAN_CONTROL_OPEN->Value() == ON) &&(KRAN_CONTROL_CLOSE->Value() == ON))   
+        	FValue = KRAN_DAMAGED;   
+  // В любой другой суперпозиции сигналов   
+	 else  		 
+          FValue = KRAN_CLOSE;         
+   }   
+     
+//----2. Бормотание   
+//---- Исправила комментарии и имена переменных для большей ясности    
 
 # 6
      PEXEALARMFUNC Func;  // OnExecute
