@@ -20,7 +20,8 @@ void BeKranSlaveDevice::DefLampState()
 TMDIChild* CurrentChild = 0;  
 ...  
 Bookmark SavePlace;  
-SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();  //Закладка на текущей записи 
+SavePlace = CurrentChild->ADOQueryEvent->GetBookmark();  //Закладка на текущей записи   
+   
      //-------------------      
 TMDIChild* currentWindow = 0;    
 ...   
