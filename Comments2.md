@@ -64,11 +64,11 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
    else if ((FIO_KRANSL_SENSOR_OPEN->Value() == OFF)&& (FIO_KRANSL_SENSOR_CLOSE->Value() == ON)) {     
    	// if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == OFF))    
         //   FValue = KRAN_OPENING1;   
-	//Только управляющий закрытия 
+	//Только управляющий закрытия   
            &ensp; &ensp;if ((FIO_KRANSL_CONTROL_OPEN->Value() == OFF) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))   
-             &ensp; &ensp; &ensp;FValue = KRAN_CLOSING; 
-	   //  Два управляющих взведены
-          &ensp; &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))    
+             &ensp; &ensp; &ensp;FValue = KRAN_CLOSING;   
+	   //  Два управляющих взведены  
+          &ensp; &ensp; else if ((FIO_KRANSL_CONTROL_OPEN->Value() == ON) &&(FIO_KRANSL_CONTROL_CLOSE->Value() == ON))     
         	  &ensp; &ensp; &ensp; FValue = KRAN_DAMAGED;   
            &ensp; &ensp; else    
          	 &ensp; &ensp; &ensp; FValue = KRAN_CLOSE;    //управляющих нет    
@@ -84,7 +84,7 @@ void BeKranSlaveDevice::VerifyError() // Неисправен  ERROR или DAMA
        &ensp;&ensp;   FValue = KRAN_CLOSE;         
    }   
       
-//----2. Бормотание   
+//----Излишние комментарии   
 //---- Исправила комментарии и имена переменных для большей ясности    
 
 # 6
